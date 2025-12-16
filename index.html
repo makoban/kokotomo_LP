@@ -339,7 +339,6 @@
             box-shadow: 0 2px 5px rgba(0,185,0,0.3);
         }
 
-
         /* コンセプト（2軸） */
         .concept-section { padding: 60px 0; background: var(--bg-light); }
         .concept-grid {
@@ -363,6 +362,95 @@
             color: #555;
             margin-top: 15px;
             border-radius: 4px;
+        }
+
+        /* お客様の声セクション */
+        .voice-section {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .voice-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            position: relative;
+        }
+        /* 吹き出しのしっぽ */
+        .voice-card::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 40px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #fff transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+        }
+        .voice-card::before {
+            content: "";
+            position: absolute;
+            bottom: -17px;
+            left: 39px;
+            border-width: 16px 16px 0;
+            border-style: solid;
+            border-color: #eee transparent;
+            display: block;
+            width: 0;
+            z-index: 0;
+        }
+        .voice-user-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px; /* 吹き出しの下に配置 */
+            margin-left: 20px;
+        }
+        .voice-avatar {
+            width: 50px;
+            height: 50px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            position: relative;
+        }
+        .voice-industry-icon {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            border: 2px solid white;
+        }
+        .voice-info {
+            font-size: 0.9rem;
+        }
+        .voice-company {
+            font-weight: bold;
+            color: var(--text-main);
+        }
+        .voice-role {
+            font-size: 0.8rem;
+            color: #888;
         }
 
         /* 相談通信簿（CSS再現） */
@@ -505,6 +593,8 @@
             .price-val { font-size: 1.4rem; }
             
             .notice-bar { font-size: 0.8rem; padding: 10px 15px; }
+            
+            .voice-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -831,6 +921,62 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="voice-section">
+        <div class="container">
+            <h2 style="text-align:center;">導入企業様の声</h2>
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <p>
+                        「現場社員は1人1台PCを持っていないため、個人のスマホ（LINE）から相談できるのが非常に助かっています。
+                        紙のストレスチェックよりも回収率が上がり、潜在的なリスクに早く気づけるようになりました。」
+                    </p>
+                    <div class="voice-user-area">
+                        <div class="voice-avatar">
+                            👨
+                            <div class="voice-industry-icon"><i class="fa-solid fa-industry"></i></div>
+                        </div>
+                        <div class="voice-info">
+                            <div class="voice-company">株式会社A (製造業)</div>
+                            <div class="voice-role">従業員数 50名 / 工場長</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="voice-card">
+                    <p>
+                        「テレワーク中心で部下の顔色が見えず、メンタル不調の発見が遅れがちでした。
+                        ココ♡トモ導入後は、AIが夜間や休日のSOSも拾ってくれるので、管理者として安心感があります。」
+                    </p>
+                    <div class="voice-user-area">
+                        <div class="voice-avatar">
+                            👩
+                            <div class="voice-industry-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        </div>
+                        <div class="voice-info">
+                            <div class="voice-company">B株式会社 (IT企業)</div>
+                            <div class="voice-role">従業員数 120名 / 人事担当</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="voice-card">
+                    <p>
+                        「外国人スタッフが多く、言葉の壁による孤立が課題でした。
+                        多言語対応のおかげで、彼らが母国語で悩みを相談できるようになり、離職率の低下につながっています。」
+                    </p>
+                    <div class="voice-user-area">
+                        <div class="voice-avatar">
+                            🧑
+                            <div class="voice-industry-icon"><i class="fa-solid fa-earth-asia"></i></div>
+                        </div>
+                        <div class="voice-info">
+                            <div class="voice-company">Cサービス (人材派遣)</div>
+                            <div class="voice-role">従業員数 300名 / マネージャー</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
