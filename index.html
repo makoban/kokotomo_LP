@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ココ♡トモ - LINEで完結する企業向けメンタルヘルスケア</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b66c8;
+            --primary-light: #8e8adb;
+            --accent: #06c755;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --line-bg: #8bacc9;
+            
+            /* 相談通信簿カラー */
+            --report-blue: #3085c3;
+            --report-orange: #ff9100;
+            --report-pink: #d65db1;
+            --report-red: #e74c3c;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.8;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-weight: 800;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            gap: 10px;
+        }
+        .btn-line {
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.1rem;
+        }
+        .btn-line:hover {
+            background-color: #05b54d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 199, 85, 0.3);
+        }
+
+        /* ヘッダー */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #f4f7f6 100%);
+            overflow: hidden;
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        .hero-text { flex: 1; }
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+        
+        /* スマホモックアップ共通スタイル */
+        .phone-mockup {
+            width: 300px;
+            background: #fff;
+            border-radius: 40px;
+            border: 10px solid #333;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            margin: 0 auto;
+        }
+        .line-screen {
+            background: var(--line-bg);
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            font-size: 0.85rem;
+        }
+        .line-header {
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .chat-area {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+        .chat-row { display: flex; align-items: flex-end; gap: 8px; }
+        .chat-row.me { justify-content: flex-end; }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .bubble {
+            max-width: 75%;
+            padding: 10px 14px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            position: relative;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .bubble.other { background: #fff; border-top-left-radius: 2px; }
+        .bubble.me { background: #95ec69; border-top-right-radius: 2px; }
+
+        /* Quick Reply Style */
+        .quick-reply-area {
+            padding: 10px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            background: rgba(0,0,0,0.05);
+        }
+        .quick-reply-area::-webkit-scrollbar { display: none; }
+        .qr-pill {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            color: #333;
+            font-weight: bold;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: default;
+        }
+        .qr-pill i { color: var(--primary); }
+
+        /* 機能詳細セクション */
+        .features-section {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+        .feature-block {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+        .feature-block.reverse {
+            flex-direction: row-reverse;
+        }
+        .feature-text { flex: 1; }
+        .feature-visual { flex: 0 0 320px; }
+        
+        .feature-tag {
+            display: inline-block;
+            background: #f0f1ff;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        .feature-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+        .feature-desc {
+            color: var(--text-sub);
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        .feature-list li::before {
+            content: "✔";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Flex Message Card (CSS再現) */
+        .flex-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 240px;
+            font-size: 0.8rem;
+        }
+        .flex-header-blue { background: #3085c3; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .flex-header-green { background: #27ae60; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .flex-header-purple { background: #8e44ad; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .flex-header-info { background: #00b900; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; } /* アンケート用 */
+        
+        .flex-body { padding: 15px; }
+        .flex-row { margin-bottom: 8px; }
+        .flex-label { color: #888; font-size: 0.7rem; }
+        .flex-value { font-weight: bold; color: #333; }
+        .flex-btns { display: flex; border-top: 1px solid #eee; }
+        .flex-btn { flex: 1; padding: 10px; text-align: center; color: #3085c3; font-weight: bold; cursor: pointer; }
+        .flex-btn:hover { background: #f9f9f9; }
+        .flex-btn.primary { color: white; background: #3085c3; }
+        .flex-btn.confirm { color: white; background: #00b900; } /* アンケート用 */
+        .flex-btn.cancel { color: #555; background: #eee; }
+
+        /* リッチメッセージ風カード (案内板) */
+        .rich-msg-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 240px;
+            border: 1px solid #eee;
+        }
+        .rich-msg-header {
+            background: #0099ff;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .rich-msg-body {
+            padding: 15px;
+        }
+        .rich-msg-title {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .rich-msg-text {
+            color: #555;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+        .rich-msg-btn {
+            background: #00b900;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+
+        /* コンセプト（2軸） */
+        .concept-section { padding: 60px 0; background: var(--bg-light); }
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .concept-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .psychology-note {
+            background: #f0f7ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+
+        /* 相談通信簿（CSS再現） */
+        .report-section {
+            background: #fff;
+            padding: 100px 0;
+        }
+        .report-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
+        .report-visual {
+            flex: 0 0 340px;
+            background: #eef2f6;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .report-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .score-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--report-orange);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: #333;
+        }
+        .score-circle.personal { border-color: var(--report-red); background: #fff5f5; }
+        .score-num { font-size: 1.8rem; font-weight: bold; line-height: 1; }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: white;
+        }
+        .badge-warn { background: var(--report-orange); }
+        .badge-danger { background: var(--report-red); }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.7rem;
+        }
+        .progress-bg { flex: 1; height: 6px; background: #eee; border-radius: 3px; margin: 0 10px; }
+        .progress-fill { height: 100%; border-radius: 3px; }
+
+        /* フッター */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content { flex-direction: column; text-align: center; }
+            .hero-visual { margin-top: 30px; }
+            .concept-grid { grid-template-columns: 1fr; }
+            .feature-block { flex-direction: column !important; gap: 30px; }
+            .report-container { flex-direction: column-reverse; }
+            .report-visual { margin: 0 auto; width: 100%; max-width: 340px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                ココ<i class="fa-solid fa-heart" style="color:var(--accent); margin:0 2px;"></i>トモ
+            </div>
+            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding: 10px 24px; font-size: 0.9rem;">
+                <i class="fa-brands fa-line"></i> お問い合わせ
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; justify-content: flex-start;">
+                    <span style="background:white; border:1px solid #ddd; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:bold; color:var(--text-sub);">
+                        <i class="fa-solid fa-mobile-screen"></i> アプリ不要
+                    </span>
+                    <span style="background:white; border:1px solid #ddd; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:bold; color:var(--text-sub);">
+                        <i class="fa-solid fa-user-secret"></i> 完全匿名
+                    </span>
+                </div>
+                <h1>
+                    <span style="color:var(--primary);">LINE</span>で完結。<br>
+                    従業員と会社を守る、<br>新しいAIパートナー。
+                </h1>
+                <p>
+                    「ココ♡トモ」は、従業員のメンタルヘルスケアと企業のコンプライアンス遵守を、使い慣れたLINEひとつで実現します。
+                </p>
+                <div style="margin-top: 30px;">
+                    <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
+                        <i class="fa-brands fa-line" style="font-size:1.4rem;"></i> デモを体験する
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="line-screen">
+                        <div class="line-header">ココ♡トモ</div>
+                        <div class="chat-area">
+                            <div class="chat-row other">
+                                <div class="avatar">🐱</div>
+                                <div class="bubble other">
+                                    こんにちは！<br>
+                                    最近、体調やお仕事で気になることはありませんか？
+                                </div>
+                            </div>
+                            <div class="chat-row me">
+                                <div class="bubble me">
+                                    最近、ちょっと眠れない日が続いていて…
+                                </div>
+                            </div>
+                            <div class="chat-row other">
+                                <div class="avatar">🐱</div>
+                                <div class="bubble other">
+                                    それは辛いですね。<br>
+                                    もしよければ、もう少し詳しくお話を聞かせてくれませんか？
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quick-reply-area">
+                            <div class="qr-pill"><i class="fa-regular fa-comments"></i> 悩み相談</div>
+                            <div class="qr-pill"><i class="fa-solid fa-magnifying-glass"></i> 社内規定</div>
+                            <div class="qr-pill"><i class="fa-solid fa-chart-pie"></i> 通信簿</div>
+                            <div class="qr-pill"><i class="fa-solid fa-triangle-exclamation"></i> 通報</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center; padding: 10px 0 40px; font-size: 0.85rem; color: #888;">
+        <i class="fa-solid fa-book-medical" style="color:var(--primary);"></i> 厚生労働省のメンタルヘルス対策ガイドライン等を参考にした設計
+    </div>
+
+    <section class="concept-section">
+        <div class="container">
+            <h2 style="text-align:center;">ココ♡トモの2つの軸</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3><i class="fa-solid fa-user-shield" style="color:var(--primary);"></i> ① 従業員を守る</h3>
+                    <p style="color:var(--text-sub); margin-bottom:20px;">
+                        24時間365日、AIが従業員の心に寄り添います。
+                        誰にも言えない悩みを匿名で相談できる場所を提供します。
+                    </p>
+                    <ul style="list-style:none; padding:0; line-height:2; font-size:0.95rem;">
+                        <li><i class="fa-solid fa-check" style="color:var(--accent);"></i> <strong>AIメンター相談</strong></li>
+                        <li><i class="fa-solid fa-check" style="color:var(--accent);"></i> <strong>完全匿名通報</strong> (ハラスメント報告)</li>
+                    </ul>
+                    <div class="psychology-note">
+                        <strong><i class="fa-solid fa-brain"></i> 学習モデルについて</strong><br>
+                        認知行動療法、ポジティブ心理学、産業・組織心理学を学習していますが、医療行為や診断ではなく、あくまでアドバイスとして提供されます。
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3><i class="fa-solid fa-building-shield" style="color:var(--primary);"></i> ② 会社を守る</h3>
+                    <p style="color:var(--text-sub); margin-bottom:20px;">
+                        法令遵守とリスク管理を自動化。
+                        総務・人事の負担を減らし、強い組織を作ります。
+                    </p>
+                    <ul style="list-style:none; padding:0; line-height:2; font-size:0.95rem;">
+                        <li><i class="fa-solid fa-check" style="color:var(--accent);"></i> <strong>社内規定AI検索</strong> (就業規則など)</li>
+                        <li><i class="fa-solid fa-check" style="color:var(--accent);"></i> <strong>法令対応サポート</strong></li>
+                        <li><i class="fa-solid fa-check" style="color:var(--accent);"></i> <strong>リスク検知アラート</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:80px;">充実の機能</h2>
+
+            <div class="feature-block">
+                <div class="feature-text">
+                    <span class="feature-tag">コミュニケーション</span>
+                    <h3 class="feature-title">匿名・実名メッセージ送信</h3>
+                    <p class="feature-desc">
+                        ココ♡トモを経由して、社長や上司へ直接メッセージを送ることができます。
+                        「実名では言いづらい意見」も、「匿名」を選べば安心して送信可能。
+                        風通しの良い組織作りをサポートします。
+                    </p>
+                    <ul class="feature-list">
+                        <li>匿名/実名の切り替えが可能</li>
+                        <li>誹謗中傷ワードはAIが自動ブロック</li>
+                        <li>送信前に確認画面を表示</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">匿名で送信します</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="flex-card">
+                                        <div class="flex-header-blue">
+                                            <i class="fa-solid fa-paper-plane"></i> 送信内容確認
+                                        </div>
+                                        <div class="flex-body">
+                                            <div class="flex-row">
+                                                <div class="flex-label">宛先</div>
+                                                <div class="flex-value">山田 太郎 (社長)</div>
+                                            </div>
+                                            <div class="flex-row">
+                                                <div class="flex-label">送信者</div>
+                                                <div class="flex-value">🎭 匿名</div>
+                                            </div>
+                                            <div style="font-size:0.7rem; color:#e74c3c; margin-top:5px;">
+                                                <i class="fa-solid fa-triangle-exclamation"></i> 管理者に送信されます
+                                            </div>
+                                        </div>
+                                        <div class="flex-btns">
+                                            <div class="flex-btn primary">✅ 送信する</div>
+                                            <div class="flex-btn cancel">キャンセル</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-text">
+                    <span class="feature-tag">メンタルケア</span>
+                    <h3 class="feature-title">5W1H 悩み相談</h3>
+                    <p class="feature-desc">
+                        「何があったか」「いつ」「どこで」など、AIが優しくヒアリング。
+                        対話形式で状況を整理しながら、AIが傾聴・共感します。
+                        話すだけで気持ちが整理され、ストレス軽減につながります。
+                    </p>
+                    <ul class="feature-list">
+                        <li>5W1H形式で状況を構造化して記録</li>
+                        <li>認知行動療法に基づいた傾聴スタイル</li>
+                        <li>いつでもキャンセル可能</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other">
+                                        話してくれてありがとう😊<br>
+                                        何があったか、話せる範囲で教えてね。<br><br>
+                                        それっていつ頃のこと？
+                                    </div>
+                                </div>
+                                <div class="chat-row me">
+                                    <div class="bubble me">今日と昨日</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other">
+                                        今日と昨日に何かあったんだね。<br>
+                                        教えてくれてありがとう😢<br>
+                                        どこで何があったのか、もう少し詳しく聞いても良いかな？
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quick-reply-area">
+                                <div class="qr-pill">オフィスで</div>
+                                <div class="qr-pill">会議室で</div>
+                                <div class="qr-pill">オンラインで</div>
+                                <div class="qr-pill" style="color:red;"><i class="fa-solid fa-xmark"></i> キャンセル</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-text">
+                    <span class="feature-tag">コンプライアンス</span>
+                    <h3 class="feature-title">相談レポート送信</h3>
+                    <p class="feature-desc">
+                        相談した内容を、そのまま「報告書」として管理者に送信できます。
+                        ハラスメント被害などのデリケートな問題も、証拠を残しつつ、
+                        匿名または実名を選んで安全に報告できます。
+                    </p>
+                    <ul class="feature-list">
+                        <li>相談履歴からワンタップでレポート作成</li>
+                        <li>匿名/実名を選択可能</li>
+                        <li>送信後のステータス（対応中・完了）も確認可能</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">select_report:154</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="flex-card">
+                                        <div class="flex-header-green">
+                                            <i class="fa-solid fa-clipboard-check"></i> 相談レポート #154
+                                        </div>
+                                        <div class="flex-body">
+                                            <div class="flex-row">
+                                                <div class="flex-label">日時</div>
+                                                <div class="flex-value">2025/12/15 13:33</div>
+                                            </div>
+                                            <div class="flex-row">
+                                                <div class="flex-label">概要</div>
+                                                <div class="flex-value" style="font-weight:normal;">会議室での発言について…</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-btns">
+                                            <div class="flex-btn primary">📩 管理者へ送信</div>
+                                            <div class="flex-btn cancel">🗑 削除</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-text">
+                    <span class="feature-tag">社内広報</span>
+                    <h3 class="feature-title">案内板（一斉配信）</h3>
+                    <p class="feature-desc">
+                        会社からのお知らせを、全従業員のLINEへ一斉配信。
+                        添付ファイル付きで送信でき、LINE上でファイルを開けます。
+                        「既読」や「確認済み」のステータス管理も可能です。
+                    </p>
+                    <ul class="feature-list">
+                        <li>月間200通まで配信可能</li>
+                        <li>画像・PDF添付対応</li>
+                        <li>リッチメッセージ（ボタン形式）でタップを誘導</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="rich-msg-card">
+                                        <div class="rich-msg-header">
+                                            <i class="fa-solid fa-building"></i> 会社からのお知らせ
+                                        </div>
+                                        <div class="rich-msg-body">
+                                            <div class="rich-msg-title">📋 年末年始休業のお知らせ</div>
+                                            <div class="rich-msg-text">
+                                                本年度の年末年始休業について、添付資料をご確認ください。
+                                            </div>
+                                            <div class="rich-msg-btn">
+                                                <i class="fa-solid fa-paperclip"></i> 添付資料を開く
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-text">
+                    <span class="feature-tag">サーベイ</span>
+                    <h3 class="feature-title">LINEアンケート & 分析</h3>
+                    <p class="feature-desc">
+                        「給与に満足していますか？」「職場の雰囲気はどうですか？」など、
+                        簡単なアンケートをLINE上で実施・集計できます。
+                        結果はAIが分析し、組織の改善ポイントを提案します。
+                    </p>
+                    <ul class="feature-list">
+                        <li>LINEで手軽に回答できるUI</li>
+                        <li>回答内容は確認画面で一覧表示</li>
+                        <li>集計結果の自動グラフ化</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                     <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">アンケート回答:1</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="flex-card">
+                                        <div class="flex-header-info">
+                                            <i class="fa-solid fa-clipboard-question"></i> アンケート回答確認
+                                        </div>
+                                        <div class="flex-body" style="background:#fefefe;">
+                                            <div style="font-size:0.75rem; color:#666; margin-bottom:10px;">以下の内容で送信しますか？</div>
+                                            
+                                            <div style="font-size:0.75rem; line-height:1.6; color:#333;">
+                                                Q1💰給与 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ◎ 十分もらえてる<br>
+                                                Q2👥人間関係 &nbsp; × 最悪・ギスギス<br>
+                                                Q3👔上司 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💬 yameru...<br>
+                                                Q4📋業務量 &nbsp;&nbsp;&nbsp;&nbsp; 💬 やめる...<br>
+                                                Q10🚪離職意向 ◎ ずっといたい
+                                            </div>
+                                        </div>
+                                        <div class="flex-btns">
+                                            <div class="flex-btn cancel"><i class="fa-solid fa-rotate-left"></i> やり直す</div>
+                                            <div class="flex-btn confirm"><i class="fa-solid fa-check"></i> 確定する</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-text">
+                    <span class="feature-tag">ダイバーシティ</span>
+                    <h3 class="feature-title">多言語対応（マルチリンガル）</h3>
+                    <p class="feature-desc">
+                        日本語だけでなく、英語、中国語、韓国語、アラビア語など、
+                        従業員の使用言語に合わせてAIが自動で言語を切り替えて対話します。
+                        外国人労働者のケアも「ココ♡トモ」なら安心です。
+                    </p>
+                    <ul class="feature-list">
+                        <li>入力言語を自動検知して応答</li>
+                        <li>メンタルヘルス相談も母国語で対応</li>
+                        <li>社内規定検索も翻訳して回答</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ (AIサンプル)</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">한국 여행 계획을 세우고 싶어요</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other">
+                                        한국 여행이라니 멋지네요! 🇰🇷<br>
+                                        여행 계획을 세우는 데 도움을 드릴 수 있어요.<br>
+                                        어떤 스타일의 여행을 원하시나요?
+                                    </div>
+                                </div>
+                                <div class="chat-row me">
+                                    <div class="bubble me" style="text-align:right;">لنتحدث عن السفر</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other" style="text-align:right; direction:rtl;">
+                                        أهلاً بك! التحدث عن السفر مرة أخرى،<br>
+                                        أليس كذلك؟ يا له من موضوع رائع!<br>
+                                        السفر يمكن أن يكون له تأثير إيجابي على الصحة النفسية.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="report-section">
+        <div class="container report-container">
+            <div class="report-text">
+                <h2>本音からの「相談通信簿」で<br>組織と個人の状態を可視化</h2>
+                <p style="margin: 20px 0; color:#555;">
+                    日々の匿名相談データから感情分析を行い、
+                    組織全体の傾向と、個人のメンタルヘルス状態を「相談通信簿」としてフィードバックします。
+                </p>
+                <p style="color:#555; background: #fff; padding:15px; border-radius:10px; border-left:4px solid var(--accent); box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                    <strong><i class="fa-solid fa-lock"></i> プライバシー保護</strong><br>
+                    個人の相談内容は厳重に保護されます。管理者が閲覧できるのは「組織全体の傾向」のみであり、個人の特定は行われません。
+                </p>
+            </div>
+
+            <div class="report-visual">
+                <div style="text-align:center; font-size:0.8rem; color:#666; margin-bottom:10px;">📊 相談通信簿イメージ</div>
+                
+                <div class="report-card">
+                    <div style="background:var(--report-blue); color:white; padding:8px; border-radius:10px 10px 0 0; font-size:0.8rem; font-weight:bold; margin:-15px -15px 15px -15px;">
+                        🏢 ココトモちゃん (AIサンプル) の集計
+                    </div>
+                    <div style="font-size:0.7rem; color:#888;">総合ストレス指数</div>
+                    <div class="score-circle">
+                        <div class="score-num">66</div>
+                        <div class="score-label">点</div>
+                    </div>
+                    <div class="status-badge badge-warn">警戒</div>
+                    
+                    <div style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;">
+                        <div style="font-size:0.7rem; font-weight:bold; text-align:left; margin-bottom:5px;">📊 3領域の内訳</div>
+                        <div class="bar-row">
+                            <div style="width:70px; text-align:left; color:#555;">仕事</div>
+                            <div class="progress-bg"><div class="progress-fill" style="width:38%; background:var(--report-orange);"></div></div>
+                            <div style="width:30px; text-align:right; font-weight:bold;">38</div>
+                        </div>
+                        <div class="bar-row">
+                            <div style="width:70px; text-align:left; color:#555;">心身</div>
+                            <div class="progress-bg"><div class="progress-fill" style="width:30%; background:var(--report-orange);"></div></div>
+                            <div style="width:30px; text-align:right; font-weight:bold;">30</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card" style="border-top: 4px solid #8e44ad;">
+                    <div style="background:#8e44ad; color:white; padding:8px; border-radius:10px 10px 0 0; font-size:0.8rem; font-weight:bold; margin:-15px -15px 15px -15px; text-align:left; padding-left:15px;">
+                        <i class="fa-solid fa-user"></i> あなたの記録
+                    </div>
+                    <div style="font-size:0.7rem; color:#888;">あなたの総合スコア</div>
+                    <div class="score-circle personal">
+                        <div class="score-num" style="color:var(--report-red);">79</div>
+                        <div class="score-label">点</div>
+                    </div>
+                    <div class="status-badge badge-danger">危険</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="font-size:2rem; color:white; margin-bottom:20px;">
+                ココ<i class="fa-solid fa-heart" style="color:var(--accent);"></i>トモ
+            </div>
+            <p style="color:#bdc3c7;">従業員の笑顔と、強い組織づくりのために。</p>
+            <div style="margin: 40px 0;">
+                <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding:15px 50px;">
+                    <i class="fa-brands fa-line"></i> お問い合わせ・資料請求
+                </a>
+            </div>
+            <p style="font-size:0.8rem; color:#7f8c8d;">&copy; 2025 Kokotomo Service. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
