@@ -185,6 +185,18 @@
         }
         .bubble.other { background: #fff; border-top-left-radius: 2px; }
         .bubble.me { background: #95ec69; border-top-right-radius: 2px; }
+        
+        /* 検索結果バブル */
+        .bubble-search {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 85%;
+        }
+        .search-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; font-size: 0.9rem; }
+        .search-text { font-size: 0.8rem; color: #555; }
+        .search-source { font-size: 0.7rem; color: #999; margin-top: 8px; text-align: right; }
 
         /* Quick Reply Style */
         .quick-reply-area {
@@ -278,6 +290,7 @@
         }
         .flex-header-blue { background: #3085c3; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
         .flex-header-green { background: #27ae60; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .flex-header-red { background: #e74c3c; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; } /* 通報用 */
         .flex-header-purple { background: #8e44ad; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
         .flex-header-info { background: #f0f8ef; color: #00b900; padding: 12px; font-weight: bold; display: flex; align-items: center; gap: 5px; border-bottom:1px solid #eee; } /* アンケート用 */
         
@@ -289,7 +302,7 @@
         .flex-btn { flex: 1; padding: 12px; text-align: center; color: #3085c3; font-weight: bold; cursor: pointer; display:flex; align-items:center; justify-content:center; gap:5px; font-size:0.85rem;}
         .flex-btn:hover { background: #f9f9f9; }
         .flex-btn.primary { color: white; background: #3085c3; }
-        .flex-btn.confirm { color: white; background: #06c755; } /* アンケート用 */
+        .flex-btn.confirm { color: white; background: #06c755; }
         .flex-btn.cancel { color: #555; background: #eee; }
 
         /* リッチメッセージ風カード (案内板) */
@@ -338,6 +351,7 @@
             gap: 5px;
             box-shadow: 0 2px 5px rgba(0,185,0,0.3);
         }
+
 
         /* コンセプト（2軸） */
         .concept-section { padding: 60px 0; background: var(--bg-light); }
@@ -412,7 +426,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-top: 30px; /* 吹き出しの下に配置 */
+            margin-top: 30px;
             margin-left: 20px;
         }
         .voice-avatar {
@@ -722,21 +736,21 @@
 
     <section class="features-section">
         <div class="container">
-            <h2 style="text-align:center; margin-bottom:60px;">充実の機能</h2>
+            <h2 style="text-align:center; margin-bottom:80px;">充実の機能</h2>
 
             <div class="feature-block">
                 <div class="feature-text">
-                    <span class="feature-tag">ダイバーシティ</span>
-                    <h3 class="feature-title">多言語対応（マルチリンガル）</h3>
+                    <span class="feature-tag">社内資料検索</span>
+                    <h3 class="feature-title">会社の資料をAIが学習<br>質問すれば即回答</h3>
                     <p class="feature-desc">
-                        日本語だけでなく、英語、中国語、韓国語、アラビア語など、
-                        従業員の使用言語に合わせてAIが自動で言語を切り替えて対話します。
-                        外国人労働者のケアも「ココ♡トモ」なら安心です。
+                        就業規則やマニュアルなど、貴社の独自資料をAIに読み込ませるだけで、専用のAIアシスタントが誕生します。
+                        従業員がLINEで質問すれば、AIが該当箇所を探して瞬時に回答。
+                        「あの資料どこ？」という問い合わせ対応の手間をゼロにします。
                     </p>
                     <ul class="feature-list">
-                        <li>入力言語を自動検知して応答</li>
-                        <li>メンタルヘルス相談も母国語で対応</li>
-                        <li>社内規定検索も翻訳して回答</li>
+                        <li>PDFをアップロードするだけの簡単設定</li>
+                        <li>24時間いつでも即レス対応</li>
+                        <li>総務・人事への問い合わせ削減</li>
                     </ul>
                 </div>
                 <div class="feature-visual">
@@ -745,25 +759,218 @@
                             <div class="line-header">ココ♡トモ</div>
                             <div class="chat-area">
                                 <div class="chat-row me">
-                                    <div class="bubble me">한국 여행 계획을 세우고 싶어요</div>
+                                    <div class="bubble me">祖母が亡くなったのですが、忌引は何日もらえますか？</div>
                                 </div>
                                 <div class="chat-row other">
                                     <div class="avatar">🐱</div>
                                     <div class="bubble other">
-                                        한국 여행이라니 멋지네요! 🇰🇷<br>
-                                        여행 계획을 세우는 데 도움을 드릴 수 있어요.<br>
-                                        어떤 스타일의 여행을 원하시나요?
+                                        ご愁傷様です。<br>
+                                        就業規則の慶弔休暇規定によると、祖父母の場合は「3日間」の忌引休暇が付与されます。<br>
+                                        申請手続きについては、総務部までご連絡ください。
                                     </div>
-                                </div>
-                                <div class="chat-row me">
-                                    <div class="bubble me" style="text-align:right;">لنتحدث عن السفر</div>
                                 </div>
                                 <div class="chat-row other">
                                     <div class="avatar">🐱</div>
-                                    <div class="bubble other" style="text-align:right; direction:rtl;">
-                                        أهلاً بك! التحدث عن السفر مرة أخرى،<br>
-                                        أليس كذلك؟ يا له من موضوع رائع!<br>
-                                        السفر يمكن أن يكون له تأثير إيجابي على الصحة النفسية.
+                                    <div class="bubble-search">
+                                        <div class="search-title">📄 参照元: 就業規則.pdf</div>
+                                        <div class="search-text">第5章 休暇 ... 第24条（慶弔休暇）... 祖父母：3日</div>
+                                        <div class="search-source">信頼度: 98%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-text">
+                    <span class="feature-tag">メンタルケア</span>
+                    <h3 class="feature-title">心理学に基づいた<br>AIメンターが心に寄り添う</h3>
+                    <p class="feature-desc">
+                        最新の心理学を学習したAIメンターが、24時間365日、従業員の悩みを受け止めます。
+                        上司や同僚には話しにくい本音も、親友のようなAIになら気軽に相談可能。
+                        否定せず共感的に傾聴することで、孤独感を解消し、メンタル不調を未然に防ぎます。
+                    </p>
+                    <ul class="feature-list">
+                        <li>認知行動療法に基づいた対話</li>
+                        <li>完全匿名で安心の相談環境</li>
+                        <li>話すだけで気持ちが整理される</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">最近、仕事でミスばかりして落ち込んでるんだ…</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other">
+                                        それは辛いですね…。<br>
+                                        一生懸命やっているからこそ、ミスをすると自分を責めてしまいますよね。<br>
+                                        どんな時にミスが起きやすいと感じますか？
+                                    </div>
+                                </div>
+                                <div class="chat-row me">
+                                    <div class="bubble me">忙しくて焦ってるときかな</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other">
+                                        なるほど、焦りがミスに繋がっているんですね。<br>
+                                        深呼吸する時間を作るだけでも違うかもしれませんよ。<br>
+                                        いつでもここでお話聞きますからね😊
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-text">
+                    <span class="feature-tag">コンプライアンス</span>
+                    <h3 class="feature-title">返信も受け取れる<br>完全匿名の通報・相談窓口</h3>
+                    <p class="feature-desc">
+                        ハラスメントなどのデリケートな問題も、個人を特定されることなく安全に通報できます。
+                        さらに、「匿名送信者を秘匿したまま、管理者からの返信を受け取る」ことが可能。
+                        一方通行にならず、安心して事実確認や解決に向けた対話を行えます。
+                    </p>
+                    <ul class="feature-list">
+                        <li>送信者の身元はシステムが完全に保護</li>
+                        <li>匿名状態で管理者とメッセージ交換が可能</li>
+                        <li>心理的ハードルを下げ、リスク情報の早期発見へ</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">
+                                        <span style="font-size:0.7rem; color:#888; display:block; margin-bottom:4px;">[匿名で送信しました]</span>
+                                        上司からの発言について相談があります。<br>
+                                        皆の前で大声で怒鳴られることがあり…
+                                    </div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🛡️</div>
+                                    <div class="flex-card">
+                                        <div class="flex-header-red">
+                                            <i class="fa-solid fa-user-shield"></i> コンプライアンス担当
+                                        </div>
+                                        <div class="flex-body">
+                                            <div style="font-size:0.8rem; margin-bottom:10px;">
+                                                ご報告ありがとうございます。<br>
+                                                詳細な状況を確認させていただきたいので、もし可能であれば日時などを教えていただけますか？<br>
+                                                <strong>※あなたの匿名性は保たれています。</strong>
+                                            </div>
+                                            <div class="flex-btns">
+                                                <div class="flex-btn primary"><i class="fa-regular fa-pen-to-square"></i> 返信する</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-text">
+                    <span class="feature-tag">コミュニケーション</span>
+                    <h3 class="feature-title">AIが見守る安心のメッセージ送信</h3>
+                    <p class="feature-desc">
+                        ココ♡トモを通じて、社長や特定の上司へメッセージを送信できます。
+                        送信内容はAIが自動でチェックし、誹謗中傷や攻撃的な表現が含まれている場合はアラートを表示。
+                        感情的なトラブルを防ぎつつ、建設的な意見箱として機能します。
+                    </p>
+                    <ul class="feature-list">
+                        <li>AIによる誹謗中傷・不適切ワード検知</li>
+                        <li>実名・匿名の切り替えも可能</li>
+                        <li>組織の風通しを良くする目安箱として</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">社長へ提案を送ります</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="flex-card">
+                                        <div class="flex-header-blue">
+                                            <i class="fa-solid fa-paper-plane"></i> 送信内容確認
+                                        </div>
+                                        <div class="flex-body">
+                                            <div class="flex-row">
+                                                <div class="flex-label">宛先</div>
+                                                <div class="flex-value">山田 太郎 (社長)</div>
+                                            </div>
+                                            <div class="flex-row">
+                                                <div class="flex-label">内容</div>
+                                                <div class="flex-value" style="font-weight:normal;">休憩室の設備について、改善案があります...</div>
+                                            </div>
+                                            <div style="background:#f0f8ef; color:#06c755; padding:5px; border-radius:4px; font-size:0.7rem; margin-top:10px; text-align:center;">
+                                                <i class="fa-solid fa-check"></i> 誹謗中傷チェックOK
+                                            </div>
+                                        </div>
+                                        <div class="flex-btns">
+                                            <div class="flex-btn primary">✅ 送信する</div>
+                                            <div class="flex-btn cancel">修正</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-text">
+                    <span class="feature-tag">社内広報</span>
+                    <h3 class="feature-title">案内板（一斉配信）</h3>
+                    <p class="feature-desc">
+                        会社からのお知らせを、全従業員のLINEへ一斉配信。
+                        添付ファイル付きで送信でき、LINE上でファイルを開けます。
+                        「既読」や「確認済み」のステータス管理も可能です。
+                    </p>
+                    <ul class="feature-list">
+                        <li>月間200通まで配信可能</li>
+                        <li>画像・PDF添付対応</li>
+                        <li>リッチメッセージ（ボタン形式）でタップを誘導</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="rich-msg-card">
+                                        <div class="rich-msg-header-area">
+                                            <i class="fa-solid fa-building"></i> ココ♡トモ (案内板)
+                                        </div>
+                                        <div class="rich-msg-body">
+                                            <div class="rich-msg-title">📋 年末年始休業のお知らせ</div>
+                                            <div class="rich-msg-text">
+                                                本年度の年末年始休業について、添付資料をご確認ください。
+                                            </div>
+                                            <div class="rich-msg-btn">
+                                                <i class="fa-solid fa-paperclip"></i> 320よろしく.png
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -826,63 +1033,20 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="feature-block">
                 <div class="feature-text">
-                    <span class="feature-tag">社内広報</span>
-                    <h3 class="feature-title">案内板（一斉配信）</h3>
+                    <span class="feature-tag">ダイバーシティ</span>
+                    <h3 class="feature-title">多言語対応（マルチリンガル）</h3>
                     <p class="feature-desc">
-                        会社からのお知らせを、全従業員のLINEへ一斉配信。
-                        添付ファイル付きで送信でき、LINE上でファイルを開けます。
-                        「既読」や「確認済み」のステータス管理も可能です。
+                        日本語だけでなく、英語、中国語、韓国語、アラビア語など、
+                        従業員の使用言語に合わせてAIが自動で言語を切り替えて対話します。
+                        外国人労働者のケアも「ココ♡トモ」なら安心です。
                     </p>
                     <ul class="feature-list">
-                        <li>月間200通まで配信可能</li>
-                        <li>画像・PDF添付対応</li>
-                        <li>リッチメッセージ（ボタン形式）でタップを誘導</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="phone-mockup">
-                        <div class="line-screen">
-                            <div class="line-header">ココ♡トモ</div>
-                            <div class="chat-area">
-                                <div class="chat-row other">
-                                    <div class="avatar">🐱</div>
-                                    <div class="rich-msg-card">
-                                        <div class="rich-msg-header-area">
-                                            <i class="fa-solid fa-building"></i> ココ♡トモ (案内板)
-                                        </div>
-                                        <div class="rich-msg-body">
-                                            <div class="rich-msg-title">📋 年末年始休業のお知らせ</div>
-                                            <div class="rich-msg-text">
-                                                本年度の年末年始休業について、添付資料をご確認ください。
-                                            </div>
-                                            <div class="rich-msg-btn">
-                                                <i class="fa-solid fa-paperclip"></i> 320よろしく.png
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-block reverse">
-                <div class="feature-text">
-                    <span class="feature-tag">コンプライアンス</span>
-                    <h3 class="feature-title">相談レポート送信</h3>
-                    <p class="feature-desc">
-                        相談した内容を、そのまま「報告書」として管理者に送信できます。
-                        ハラスメント被害などのデリケートな問題も、証拠を残しつつ、
-                        匿名または実名を選んで安全に報告できます。
-                    </p>
-                    <ul class="feature-list">
-                        <li>相談履歴からワンタップでレポート作成</li>
-                        <li>匿名/実名を選択可能</li>
-                        <li>送信後のステータス（対応中・完了）も確認可能</li>
+                        <li>入力言語を自動検知して応答</li>
+                        <li>メンタルヘルス相談も母国語で対応</li>
+                        <li>社内規定検索も翻訳して回答</li>
                     </ul>
                 </div>
                 <div class="feature-visual">
@@ -891,28 +1055,25 @@
                             <div class="line-header">ココ♡トモ</div>
                             <div class="chat-area">
                                 <div class="chat-row me">
-                                    <div class="bubble me">select_report:154</div>
+                                    <div class="bubble me">한국 여행 계획을 세우고 싶어요</div>
                                 </div>
                                 <div class="chat-row other">
                                     <div class="avatar">🐱</div>
-                                    <div class="flex-card">
-                                        <div class="flex-header-green">
-                                            <i class="fa-solid fa-clipboard-check"></i> 相談レポート #154
-                                        </div>
-                                        <div class="flex-body">
-                                            <div class="flex-row">
-                                                <div class="flex-label">日時</div>
-                                                <div class="flex-value">2025/12/15 13:33</div>
-                                            </div>
-                                            <div class="flex-row">
-                                                <div class="flex-label">概要</div>
-                                                <div class="flex-value" style="font-weight:normal;">会議室での発言について…</div>
-                                            </div>
-                                        </div>
-                                        <div class="flex-btns">
-                                            <div class="flex-btn primary">📩 管理者へ送信</div>
-                                            <div class="flex-btn cancel">🗑 削除</div>
-                                        </div>
+                                    <div class="bubble other">
+                                        한국 여행이라니 멋지네요! 🇰🇷<br>
+                                        여행 계획을 세우는 데 도움을 드릴 수 있어요.<br>
+                                        어떤 스타일의 여행을 원하시나요?
+                                    </div>
+                                </div>
+                                <div class="chat-row me">
+                                    <div class="bubble me" style="text-align:right;">لنتحدث عن السفر</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other" style="text-align:right; direction:rtl;">
+                                        أهلاً بك! التحدث عن السفر مرة أخرى،<br>
+                                        أليس كذلك؟ يا له من موضوع رائع!<br>
+                                        السفر يمكن أن يكون له تأثير إيجابي على الصحة النفسية.
                                     </div>
                                 </div>
                             </div>
