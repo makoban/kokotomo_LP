@@ -352,6 +352,7 @@
             box-shadow: 0 2px 5px rgba(0,185,0,0.3);
         }
 
+
         /* コンセプト（2軸） */
         .concept-section { padding: 60px 0; background: var(--bg-light); }
         .concept-grid {
@@ -572,6 +573,32 @@
             padding: 60px 0;
             text-align: center;
         }
+        /* 提供元セクション */
+        .provider-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .provider-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        .provider-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
 
         /* レスポンシブ対応 (モバイル最適化) */
         @media (max-width: 900px) {
@@ -608,6 +635,8 @@
             .notice-bar { font-size: 0.8rem; padding: 10px 15px; }
             
             .voice-grid { grid-template-columns: 1fr; }
+            
+            .provider-grid { flex-direction: column; gap: 20px; align-items: center; }
         }
     </style>
 </head>
@@ -1217,6 +1246,27 @@
 
     <footer>
         <div class="container">
+            <div class="provider-grid">
+                <div class="provider-item">
+                    <div class="provider-icon" style="color: var(--accent);">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.8rem; color: #bdc3c7;">販売元</div>
+                        <div style="font-size: 1.1rem; font-weight: bold;">株式会社バンテックス</div>
+                    </div>
+                </div>
+                <div class="provider-item">
+                    <div class="provider-icon" style="color: var(--primary-light);">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.8rem; color: #bdc3c7;">開発元</div>
+                        <div style="font-size: 1.1rem; font-weight: bold;">株式会社ビー・クリエイティブ</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="logo" style="font-size:2rem; color:white; margin-bottom:20px;">
                 ココ<i class="fa-solid fa-heart" style="color:var(--accent);"></i>トモ
             </div>
