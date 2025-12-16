@@ -33,12 +33,13 @@
             color: var(--text-main);
             line-height: 1.8;
             background-color: var(--white);
+            -webkit-text-size-adjust: 100%;
         }
 
         .container {
             max-width: 1080px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         h1, h2, h3, h4 {
@@ -87,25 +88,27 @@
             height: 72px;
         }
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-family: "M PLUS Rounded 1c", sans-serif;
             font-weight: 800;
             color: var(--primary);
+            white-space: nowrap;
         }
 
         /* お知らせバー */
         .notice-bar {
             background: #333;
             color: white;
-            padding: 10px 0;
+            padding: 12px 20px;
             text-align: center;
-            font-size: 0.9rem;
-            margin-top: 72px; /* ヘッダーの高さ分下げる */
+            font-size: 0.85rem;
+            margin-top: 72px;
+            line-height: 1.5;
         }
 
         /* ヒーローセクション */
         .hero {
-            padding: 100px 0 80px; /* 上部padding調整 */
+            padding: 60px 0 80px;
             background: linear-gradient(135deg, #fdfbfb 0%, #f4f7f6 100%);
             overflow: hidden;
         }
@@ -168,6 +171,7 @@
             justify-content: center;
             font-size: 20px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            flex-shrink: 0;
         }
         .bubble {
             max-width: 75%;
@@ -177,6 +181,7 @@
             position: relative;
             line-height: 1.5;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            word-break: break-word;
         }
         .bubble.other { background: #fff; border-top-left-radius: 2px; }
         .bubble.me { background: #95ec69; border-top-right-radius: 2px; }
@@ -274,17 +279,17 @@
         .flex-header-blue { background: #3085c3; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
         .flex-header-green { background: #27ae60; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
         .flex-header-purple { background: #8e44ad; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
-        .flex-header-info { background: #00b900; color: white; padding: 10px; font-weight: bold; display: flex; align-items: center; gap: 5px; } /* アンケート用 */
+        .flex-header-info { background: #f0f8ef; color: #00b900; padding: 12px; font-weight: bold; display: flex; align-items: center; gap: 5px; border-bottom:1px solid #eee; } /* アンケート用 */
         
         .flex-body { padding: 15px; }
         .flex-row { margin-bottom: 8px; }
         .flex-label { color: #888; font-size: 0.7rem; }
         .flex-value { font-weight: bold; color: #333; }
         .flex-btns { display: flex; border-top: 1px solid #eee; }
-        .flex-btn { flex: 1; padding: 10px; text-align: center; color: #3085c3; font-weight: bold; cursor: pointer; }
+        .flex-btn { flex: 1; padding: 12px; text-align: center; color: #3085c3; font-weight: bold; cursor: pointer; display:flex; align-items:center; justify-content:center; gap:5px; font-size:0.85rem;}
         .flex-btn:hover { background: #f9f9f9; }
         .flex-btn.primary { color: white; background: #3085c3; }
-        .flex-btn.confirm { color: white; background: #00b900; } /* アンケート用 */
+        .flex-btn.confirm { color: white; background: #06c755; } /* アンケート用 */
         .flex-btn.cancel { color: #555; background: #eee; }
 
         /* リッチメッセージ風カード (案内板) */
@@ -294,17 +299,16 @@
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             width: 240px;
-            border: 1px solid #eee;
         }
-        .rich-msg-header {
-            background: #0099ff;
+        .rich-msg-header-area {
+            background: #2cb4f3; /* 水色 */
             color: white;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 0.9rem;
+            padding: 10px 15px;
             display: flex;
             align-items: center;
             gap: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
         .rich-msg-body {
             padding: 15px;
@@ -313,24 +317,26 @@
             font-weight: bold;
             font-size: 1rem;
             margin-bottom: 5px;
+            color: #333;
         }
         .rich-msg-text {
-            color: #555;
+            color: #666;
             font-size: 0.8rem;
             margin-bottom: 15px;
         }
         .rich-msg-btn {
-            background: #00b900;
+            background: #06c755;
             color: white;
             text-align: center;
-            padding: 10px;
-            border-radius: 20px;
+            padding: 12px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
+            box-shadow: 0 2px 5px rgba(0,185,0,0.3);
         }
 
 
@@ -424,7 +430,7 @@
         .pricing-card {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
             padding: 50px;
             text-align: center;
             max-width: 600px;
@@ -435,24 +441,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 25px 0;
             border-bottom: 1px solid #eee;
         }
         .price-row:last-child { border-bottom: none; }
         .price-label {
             font-weight: bold;
-            color: var(--text-sub);
+            color: var(--text-main);
             text-align: left;
+            font-size: 1.1rem;
         }
         .price-val {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--primary);
+            font-family: "M PLUS Rounded 1c", sans-serif;
         }
         .price-note {
             font-size: 0.9rem;
             color: #888;
             font-weight: normal;
+            margin-left: 5px;
         }
 
         /* フッター */
@@ -463,15 +472,39 @@
             text-align: center;
         }
 
+        /* レスポンシブ対応 (モバイル最適化) */
         @media (max-width: 900px) {
-            .hero-content { flex-direction: column; text-align: center; }
-            .hero-visual { margin-top: 30px; }
-            .concept-grid { grid-template-columns: 1fr; }
-            .feature-block { flex-direction: column !important; gap: 30px; }
-            .report-container { flex-direction: column-reverse; }
-            .report-visual { margin: 0 auto; width: 100%; max-width: 340px; }
-            .price-row { flex-direction: column; gap: 5px; align-items: flex-start; }
-            .price-val { align-self: flex-end; }
+            .hero { padding: 40px 0 60px; }
+            .hero-content { flex-direction: column; text-align: center; gap: 40px; }
+            .hero-text { padding: 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 br { display: none; } /* モバイルでは改行しない */
+            
+            .concept-grid { grid-template-columns: 1fr; gap: 30px; }
+            .concept-card { padding: 30px; }
+            
+            .feature-block { 
+                flex-direction: column !important; /* 常にカラム方向 */
+                gap: 40px; 
+                margin-bottom: 80px;
+            }
+            .feature-visual { width: 100%; max-width: 320px; margin: 0 auto; }
+            .feature-text { text-align: left; }
+            
+            .report-container { flex-direction: column-reverse; gap: 40px; }
+            .report-visual { margin: 0 auto; width: 100%; max-width: 340px; padding: 15px; }
+            
+            .pricing-card { padding: 30px 20px; }
+            .price-row { 
+                flex-direction: column; 
+                gap: 5px; 
+                align-items: center; /* 中央揃え */
+                text-align: center;
+            }
+            .price-label { text-align: center; margin-bottom: 5px; font-size: 1rem; }
+            .price-val { font-size: 1.4rem; }
+            
+            .notice-bar { font-size: 0.8rem; padding: 10px 15px; }
         }
     </style>
 </head>
@@ -482,7 +515,7 @@
             <div class="logo">
                 ココ<i class="fa-solid fa-heart" style="color:var(--accent); margin:0 2px;"></i>トモ
             </div>
-            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding: 10px 24px; font-size: 0.9rem;">
+            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding: 8px 18px; font-size: 0.85rem;">
                 <i class="fa-brands fa-line"></i> お問い合わせ
             </a>
         </div>
@@ -490,14 +523,14 @@
 
     <div class="notice-bar">
         <div class="container">
-            ※ 2025年12月 おかげさまでモニター募集は終了いたしました。ご協力いただきまして誠にありがとうございました。
+            ※ 2025年12月 おかげさまでモニター募集は終了いたしました。<br class="sp-only">ご協力いただきまして誠にありがとうございました。
         </div>
     </div>
 
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; justify-content: flex-start;">
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; justify-content: flex-start; @media(max-width:900px){justify-content:center;}">
                     <span style="background:white; border:1px solid #ddd; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:bold; color:var(--text-sub);">
                         <i class="fa-solid fa-mobile-screen"></i> アプリ不要
                     </span>
@@ -507,7 +540,7 @@
                 </div>
                 <h1>
                     <span style="color:var(--primary);">LINE</span>で完結。<br>
-                    従業員と会社を守る、<br>新しいAIパートナー。
+                    従業員と会社を守る<br>新しいAIパートナー。
                 </h1>
                 <p>
                     「ココ♡トモ」は、従業員のメンタルヘルスケアと企業のコンプライアンス遵守を、使い慣れたLINEひとつで実現します。
@@ -556,7 +589,7 @@
         </div>
     </section>
 
-    <div style="text-align: center; padding: 10px 0 40px; font-size: 0.85rem; color: #888;">
+    <div style="text-align: center; padding: 10px 20px 40px; font-size: 0.8rem; color: #888; line-height:1.4;">
         <i class="fa-solid fa-book-medical" style="color:var(--primary);"></i> 厚生労働省のメンタルヘルス対策ガイドライン等を参考にした設計
     </div>
 
@@ -599,21 +632,21 @@
 
     <section class="features-section">
         <div class="container">
-            <h2 style="text-align:center; margin-bottom:80px;">充実の機能</h2>
+            <h2 style="text-align:center; margin-bottom:60px;">充実の機能</h2>
 
             <div class="feature-block">
                 <div class="feature-text">
-                    <span class="feature-tag">コミュニケーション</span>
-                    <h3 class="feature-title">匿名・実名メッセージ送信</h3>
+                    <span class="feature-tag">ダイバーシティ</span>
+                    <h3 class="feature-title">多言語対応（マルチリンガル）</h3>
                     <p class="feature-desc">
-                        ココ♡トモを経由して、社長や上司へ直接メッセージを送ることができます。
-                        「実名では言いづらい意見」も、「匿名」を選べば安心して送信可能。
-                        風通しの良い組織作りをサポートします。
+                        日本語だけでなく、英語、中国語、韓国語、アラビア語など、
+                        従業員の使用言語に合わせてAIが自動で言語を切り替えて対話します。
+                        外国人労働者のケアも「ココ♡トモ」なら安心です。
                     </p>
                     <ul class="feature-list">
-                        <li>匿名/実名の切り替えが可能</li>
-                        <li>誹謗中傷ワードはAIが自動ブロック</li>
-                        <li>送信前に確認画面を表示</li>
+                        <li>入力言語を自動検知して応答</li>
+                        <li>メンタルヘルス相談も母国語で対応</li>
+                        <li>社内規定検索も翻訳して回答</li>
                     </ul>
                 </div>
                 <div class="feature-visual">
@@ -622,31 +655,25 @@
                             <div class="line-header">ココ♡トモ</div>
                             <div class="chat-area">
                                 <div class="chat-row me">
-                                    <div class="bubble me">匿名で送信します</div>
+                                    <div class="bubble me">한국 여행 계획을 세우고 싶어요</div>
                                 </div>
                                 <div class="chat-row other">
                                     <div class="avatar">🐱</div>
-                                    <div class="flex-card">
-                                        <div class="flex-header-blue">
-                                            <i class="fa-solid fa-paper-plane"></i> 送信内容確認
-                                        </div>
-                                        <div class="flex-body">
-                                            <div class="flex-row">
-                                                <div class="flex-label">宛先</div>
-                                                <div class="flex-value">山田 太郎 (社長)</div>
-                                            </div>
-                                            <div class="flex-row">
-                                                <div class="flex-label">送信者</div>
-                                                <div class="flex-value">🎭 匿名</div>
-                                            </div>
-                                            <div style="font-size:0.7rem; color:#e74c3c; margin-top:5px;">
-                                                <i class="fa-solid fa-triangle-exclamation"></i> 管理者に送信されます
-                                            </div>
-                                        </div>
-                                        <div class="flex-btns">
-                                            <div class="flex-btn primary">✅ 送信する</div>
-                                            <div class="flex-btn cancel">キャンセル</div>
-                                        </div>
+                                    <div class="bubble other">
+                                        한국 여행이라니 멋지네요! 🇰🇷<br>
+                                        여행 계획을 세우는 데 도움을 드릴 수 있어요.<br>
+                                        어떤 스타일의 여행을 원하시나요?
+                                    </div>
+                                </div>
+                                <div class="chat-row me">
+                                    <div class="bubble me" style="text-align:right;">لنتحدث عن السفر</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="bubble other" style="text-align:right; direction:rtl;">
+                                        أهلاً بك! التحدث عن السفر مرة أخرى،<br>
+                                        أليس كذلك؟ يا له من موضوع رائع!<br>
+                                        السفر يمكن أن يكون له تأثير إيجابي على الصحة النفسية.
                                     </div>
                                 </div>
                             </div>
@@ -657,17 +684,72 @@
 
             <div class="feature-block reverse">
                 <div class="feature-text">
-                    <span class="feature-tag">メンタルケア</span>
-                    <h3 class="feature-title">5W1H 悩み相談</h3>
+                    <span class="feature-tag">サーベイ</span>
+                    <h3 class="feature-title">LINEアンケート & 分析</h3>
                     <p class="feature-desc">
-                        「何があったか」「いつ」「どこで」など、AIが優しくヒアリング。
-                        対話形式で状況を整理しながら、AIが傾聴・共感します。
-                        話すだけで気持ちが整理され、ストレス軽減につながります。
+                        「給与に満足していますか？」「職場の雰囲気はどうですか？」など、
+                        簡単なアンケートをLINE上で実施・集計できます。
+                        結果はAIが分析し、組織の改善ポイントを提案します。
                     </p>
                     <ul class="feature-list">
-                        <li>5W1H形式で状況を構造化して記録</li>
-                        <li>認知行動療法に基づいた傾聴スタイル</li>
-                        <li>いつでもキャンセル可能</li>
+                        <li>LINEで手軽に回答できるUI</li>
+                        <li>回答内容は確認画面で一覧表示</li>
+                        <li>集計結果の自動グラフ化</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                     <div class="phone-mockup">
+                        <div class="line-screen">
+                            <div class="line-header">ココ♡トモ</div>
+                            <div class="chat-area">
+                                <div class="chat-row me">
+                                    <div class="bubble me">アンケート回答:1</div>
+                                </div>
+                                <div class="chat-row other">
+                                    <div class="avatar">🐱</div>
+                                    <div class="flex-card">
+                                        <div class="flex-header-info">
+                                            <i class="fa-solid fa-clipboard-question"></i> アンケート回答確認
+                                        </div>
+                                        <div class="flex-body" style="background:#fefefe;">
+                                            <div style="font-size:0.75rem; color:#666; margin-bottom:10px;">以下の内容で送信しますか？</div>
+                                            
+                                            <div style="font-size:0.75rem; line-height:1.6; color:#333; font-family:monospace;">
+                                                Q1💰給与<br>
+                                                &nbsp;&nbsp;◎ 十分もらえてる<br>
+                                                Q2👥人間関係<br>
+                                                &nbsp;&nbsp;× 最悪・ギスギス<br>
+                                                Q3👔上司<br>
+                                                &nbsp;&nbsp;💬 yameru...<br>
+                                                Q10🚪離職意向<br>
+                                                &nbsp;&nbsp;◎ ずっといたい
+                                            </div>
+                                        </div>
+                                        <div class="flex-btns">
+                                            <div class="flex-btn cancel"><i class="fa-solid fa-rotate-left"></i> やり直す</div>
+                                            <div class="flex-btn confirm"><i class="fa-solid fa-check"></i> 確定する</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-text">
+                    <span class="feature-tag">社内広報</span>
+                    <h3 class="feature-title">案内板（一斉配信）</h3>
+                    <p class="feature-desc">
+                        会社からのお知らせを、全従業員のLINEへ一斉配信。
+                        添付ファイル付きで送信でき、LINE上でファイルを開けます。
+                        「既読」や「確認済み」のステータス管理も可能です。
+                    </p>
+                    <ul class="feature-list">
+                        <li>月間200通まで配信可能</li>
+                        <li>画像・PDF添付対応</li>
+                        <li>リッチメッセージ（ボタン形式）でタップを誘導</li>
                     </ul>
                 </div>
                 <div class="feature-visual">
@@ -677,36 +759,28 @@
                             <div class="chat-area">
                                 <div class="chat-row other">
                                     <div class="avatar">🐱</div>
-                                    <div class="bubble other">
-                                        話してくれてありがとう😊<br>
-                                        何があったか、話せる範囲で教えてね。<br><br>
-                                        それっていつ頃のこと？
+                                    <div class="rich-msg-card">
+                                        <div class="rich-msg-header-area">
+                                            <i class="fa-solid fa-building"></i> ココ♡トモ (案内板)
+                                        </div>
+                                        <div class="rich-msg-body">
+                                            <div class="rich-msg-title">📋 年末年始休業のお知らせ</div>
+                                            <div class="rich-msg-text">
+                                                本年度の年末年始休業について、添付資料をご確認ください。
+                                            </div>
+                                            <div class="rich-msg-btn">
+                                                <i class="fa-solid fa-paperclip"></i> 320よろしく.png
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="chat-row me">
-                                    <div class="bubble me">今日と昨日</div>
-                                </div>
-                                <div class="chat-row other">
-                                    <div class="avatar">🐱</div>
-                                    <div class="bubble other">
-                                        今日と昨日に何かあったんだね。<br>
-                                        教えてくれてありがとう😢<br>
-                                        どこで何があったのか、もう少し詳しく聞いても良いかな？
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="quick-reply-area">
-                                <div class="qr-pill">オフィスで</div>
-                                <div class="qr-pill">会議室で</div>
-                                <div class="qr-pill">オンラインで</div>
-                                <div class="qr-pill" style="color:red;"><i class="fa-solid fa-xmark"></i> キャンセル</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="feature-block">
+            <div class="feature-block reverse">
                 <div class="feature-text">
                     <span class="feature-tag">コンプライアンス</span>
                     <h3 class="feature-title">相談レポート送信</h3>
@@ -749,149 +823,6 @@
                                             <div class="flex-btn primary">📩 管理者へ送信</div>
                                             <div class="flex-btn cancel">🗑 削除</div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-block reverse">
-                <div class="feature-text">
-                    <span class="feature-tag">社内広報</span>
-                    <h3 class="feature-title">案内板（一斉配信）</h3>
-                    <p class="feature-desc">
-                        会社からのお知らせを、全従業員のLINEへ一斉配信。
-                        添付ファイル付きで送信でき、LINE上でファイルを開けます。
-                        「既読」や「確認済み」のステータス管理も可能です。
-                    </p>
-                    <ul class="feature-list">
-                        <li>月間200通まで配信可能</li>
-                        <li>画像・PDF添付対応</li>
-                        <li>リッチメッセージ（ボタン形式）でタップを誘導</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="phone-mockup">
-                        <div class="line-screen">
-                            <div class="line-header">ココ♡トモ</div>
-                            <div class="chat-area">
-                                <div class="chat-row other">
-                                    <div class="avatar">🐱</div>
-                                    <div class="rich-msg-card">
-                                        <div class="rich-msg-header">
-                                            <i class="fa-solid fa-building"></i> 会社からのお知らせ
-                                        </div>
-                                        <div class="rich-msg-body">
-                                            <div class="rich-msg-title">📋 年末年始休業のお知らせ</div>
-                                            <div class="rich-msg-text">
-                                                本年度の年末年始休業について、添付資料をご確認ください。
-                                            </div>
-                                            <div class="rich-msg-btn">
-                                                <i class="fa-solid fa-paperclip"></i> 添付資料を開く
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-block">
-                <div class="feature-text">
-                    <span class="feature-tag">サーベイ</span>
-                    <h3 class="feature-title">LINEアンケート & 分析</h3>
-                    <p class="feature-desc">
-                        「給与に満足していますか？」「職場の雰囲気はどうですか？」など、
-                        簡単なアンケートをLINE上で実施・集計できます。
-                        結果はAIが分析し、組織の改善ポイントを提案します。
-                    </p>
-                    <ul class="feature-list">
-                        <li>LINEで手軽に回答できるUI</li>
-                        <li>回答内容は確認画面で一覧表示</li>
-                        <li>集計結果の自動グラフ化</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                     <div class="phone-mockup">
-                        <div class="line-screen">
-                            <div class="line-header">ココ♡トモ</div>
-                            <div class="chat-area">
-                                <div class="chat-row me">
-                                    <div class="bubble me">アンケート回答:1</div>
-                                </div>
-                                <div class="chat-row other">
-                                    <div class="avatar">🐱</div>
-                                    <div class="flex-card">
-                                        <div class="flex-header-info">
-                                            <i class="fa-solid fa-clipboard-question"></i> アンケート回答確認
-                                        </div>
-                                        <div class="flex-body" style="background:#fefefe;">
-                                            <div style="font-size:0.75rem; color:#666; margin-bottom:10px;">以下の内容で送信しますか？</div>
-                                            
-                                            <div style="font-size:0.75rem; line-height:1.6; color:#333;">
-                                                Q1💰給与 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ◎ 十分もらえてる<br>
-                                                Q2👥人間関係 &nbsp; × 最悪・ギスギス<br>
-                                                Q3👔上司 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💬 yameru...<br>
-                                                Q4📋業務量 &nbsp;&nbsp;&nbsp;&nbsp; 💬 やめる...<br>
-                                                Q10🚪離職意向 ◎ ずっといたい
-                                            </div>
-                                        </div>
-                                        <div class="flex-btns">
-                                            <div class="flex-btn cancel"><i class="fa-solid fa-rotate-left"></i> やり直す</div>
-                                            <div class="flex-btn confirm"><i class="fa-solid fa-check"></i> 確定する</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-block reverse">
-                <div class="feature-text">
-                    <span class="feature-tag">ダイバーシティ</span>
-                    <h3 class="feature-title">多言語対応（マルチリンガル）</h3>
-                    <p class="feature-desc">
-                        日本語だけでなく、英語、中国語、韓国語、アラビア語など、
-                        従業員の使用言語に合わせてAIが自動で言語を切り替えて対話します。
-                        外国人労働者のケアも「ココ♡トモ」なら安心です。
-                    </p>
-                    <ul class="feature-list">
-                        <li>入力言語を自動検知して応答</li>
-                        <li>メンタルヘルス相談も母国語で対応</li>
-                        <li>社内規定検索も翻訳して回答</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="phone-mockup">
-                        <div class="line-screen">
-                            <div class="line-header">ココ♡トモ (AIサンプル)</div>
-                            <div class="chat-area">
-                                <div class="chat-row me">
-                                    <div class="bubble me">한국 여행 계획을 세우고 싶어요</div>
-                                </div>
-                                <div class="chat-row other">
-                                    <div class="avatar">🐱</div>
-                                    <div class="bubble other">
-                                        한국 여행이라니 멋지네요! 🇰🇷<br>
-                                        여행 계획을 세우는 데 도움을 드릴 수 있어요.<br>
-                                        어떤 스타일의 여행을 원하시나요?
-                                    </div>
-                                </div>
-                                <div class="chat-row me">
-                                    <div class="bubble me" style="text-align:right;">لنتحدث عن السفر</div>
-                                </div>
-                                <div class="chat-row other">
-                                    <div class="avatar">🐱</div>
-                                    <div class="bubble other" style="text-align:right; direction:rtl;">
-                                        أهلاً بك! التحدث عن السفر مرة أخرى،<br>
-                                        أليس كذلك؟ يا له من موضوع رائع!<br>
-                                        السفر يمكن أن يكون له تأثير إيجابي على الصحة النفسية.
                                     </div>
                                 </div>
                             </div>
