@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【大阪・神戸・東京】10年先、100年先を考える今日、明日のお手伝い | 税理士法人FLAP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* ========== Header ========== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 60px;
+            background: #003366;
+            color: white;
+            font-size: 13px;
+        }
+
+        .header-top-left {
+            display: flex;
+            gap: 40px;
+        }
+
+        .header-top-left a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-top-left a:hover {
+            opacity: 0.8;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 60px;
+            background: white;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #003366;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #003366;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            color: #003366;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            margin-top: 110px;
+            background: linear-gradient(135deg, #f5f8fc 0%, #f0f4f8 50%, #faf8f3 100%);
+            padding: 80px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 550px;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: #003366;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ========== About Section ========== */
+        .about {
+            background: white;
+            padding: 100px 60px;
+        }
+
+        .section-label {
+            color: #FFD700;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .about h2 {
+            font-size: 42px;
+            color: #003366;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 2;
+        }
+
+        .about-cta {
+            display: inline-block;
+            margin-top: 30px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .about-cta:hover {
+            padding-bottom: 12px;
+            color: #FFD700;
+        }
+
+        /* ========== Services Section ========== */
+        .services {
+            background: linear-gradient(180deg, #fafbfc 0%, #f5f8fc 100%);
+            padding: 100px 60px;
+        }
+
+        .service-group {
+            margin-bottom: 120px;
+        }
+
+        .service-group h2 {
+            font-size: 42px;
+            color: #003366;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .service-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 5px solid #FFD700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(255, 215, 0, 0.15);
+        }
+
+        .service-item h3 {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ========== Service Diagram Section ========== */
+        .service-diagram-section {
+            background: white;
+            padding: 80px 60px;
+            border-radius: 16px;
+            margin: 60px 0;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-diagram-section h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .service-diagram-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-diagram-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .service-diagram-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .service-wheel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wheel-item {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid white;
+        }
+
+        .wheel-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 24px rgba(255, 215, 0, 0.4);
+        }
+
+        .wheel-item-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 6px;
+        }
+
+        .wheel-item-label {
+            font-size: 11px;
+            color: #003366;
+            font-weight: 600;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* 観覧車の配置 */
+        .wheel-item:nth-child(1) { top: 0%; left: 50%; transform: translateX(-50%); }
+        .wheel-item:nth-child(2) { top: 15%; right: 5%; }
+        .wheel-item:nth-child(3) { top: 50%; right: 0%; transform: translateY(-50%); }
+        .wheel-item:nth-child(4) { bottom: 15%; right: 5%; }
+        .wheel-item:nth-child(5) { bottom: 0%; left: 50%; transform: translateX(-50%); }
+        .wheel-item:nth-child(6) { bottom: 15%; left: 5%; }
+        .wheel-item:nth-child(7) { top: 50%; left: 0%; transform: translateY(-50%); }
+        .wheel-item:nth-child(8) { top: 15%; left: 5%; }
+
+        .service-cta {
+            display: inline-block;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .service-cta:hover {
+            padding-bottom: 12px;
+            color: #FFD700;
+        }
+
+        /* ========== Voice Section ========== */
+        .voice {
+            background: white;
+            padding: 100px 60px;
+        }
+
+        .voice h2 {
+            font-size: 42px;
+            color: #003366;
+            margin-bottom: 70px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .voice-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .voice-item {
+            text-align: center;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f9fafb 0%, #f5f8fc 100%);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .voice-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.12);
+        }
+
+        .voice-item-image {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            border: 4px solid #FFD700;
+        }
+
+        .voice-item:hover .voice-item-image {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(255, 215, 0, 0.3);
+        }
+
+        .voice-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .voice-item blockquote {
+            font-size: 15px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.9;
+        }
+
+        .voice-item .company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #003366;
+            margin-bottom: 8px;
+        }
+
+        .voice-item .office {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+
+        .voice-cta {
+            display: inline-block;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .voice-cta:hover {
+            padding-bottom: 12px;
+            color: #FFD700;
+        }
+
+        /* ========== News Section ========== */
+        .news {
+            background: linear-gradient(180deg, #fafbfc 0%, #f5f8fc 100%);
+            padding: 100px 60px;
+        }
+
+        .news h2 {
+            font-size: 42px;
+            color: #003366;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .news-items {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+            max-width: 900px;
+        }
+
+        .news-item {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            border-left: 5px solid #FFD700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .news-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .news-item-date {
+            font-size: 13px;
+            color: #999;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .news-item-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            color: #003366;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .news-item-title {
+            flex: 1;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .news-item-title:hover {
+            color: #003366;
+        }
+
+        .news-cta {
+            display: inline-block;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .news-cta:hover {
+            padding-bottom: 12px;
+            color: #FFD700;
+        }
+
+        /* ========== Contact Section ========== */
+        .contact {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            margin-bottom: 70px;
+            font-weight: 700;
+        }
+
+        .contact-offices {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .office {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .office:hover {
+            background: rgba(255, 215, 0, 0.15);
+            transform: translateY(-8px);
+            border-color: #FFD700;
+        }
+
+        .office h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .office-phone {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .office-hours {
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
+        .contact-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            color: #003366;
+            padding: 16px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(255, 215, 0, 0.3);
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            background: #002244;
+            color: white;
+            padding: 50px 60px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        footer-links {
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        /* ========== Responsive Design ========== */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                margin-top: 100px;
+                padding: 50px 20px;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .service-items {
+                grid-template-columns: 1fr;
+            }
+
+            .voice-items {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-offices {
+                grid-template-columns: 1fr;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 20px;
+            }
+
+            .header-top-left {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                padding: 12px 20px;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .about,
+            .services,
+            .voice,
+            .news,
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .wheel-item {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== Header ========== -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-left">
+                <a href="tel:06-6456-0070">大阪：06-6456-0070</a>
+                <a href="tel:078-392-3800">神戸：078-392-3800</a>
+                <a href="tel:03-6205-4537">東京：03-6205-4537</a>
+            </div>
+            <div style="font-size: 12px;">受付時間／9:00〜17:00</div>
+        </div>
+        <div class="header-nav">
+            <a href="#" class="logo">FLAP</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">FLAPについて</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#voice">お客様の声</a></li>
+                    <li><a href="#news">新着情報</a></li>
+                    <li><a href="#contact" class="cta-button">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== Hero Section ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>10年先、100年先を考えるための今日、明日のお手伝い</h1>
+            <p>Let's FLAP！もっと遠くへ、もっと高く</p>
+            <a href="#contact" class="cta-button">お問い合わせ</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/about-image.png" alt="躍動感のあるビジネスマン">
+        </div>
+    </section>
+
+    <!-- ========== About Section ========== -->
+    <section class="about" id="about">
+        <div class="section-label">ABOUT</div>
+        <h2>FLAPについて</h2>
+        <div class="about-content">
+            <p>私たちは お客様・社員・会社のみんなが 元気で幸せになることを追求します。</p>
+            <p>私共FLAPは、お客様の成長に貢献すること、そして幸せを最大化することを目指しています。成長過程に寄り添い、その時々に最適な価値を提供いたします。そして、お客様の大切なすべての財産をお守りする。お客様のあらゆるステージで、最高のサービスを提供し、ともに喜びを分かち合う。常にお客様と共に歩む企業を目指して、日々努力を続けてまいります。</p>
+            <a href="#" class="about-cta">詳しく見る</a>
+        </div>
+    </section>
+
+    <!-- ========== Services Section ========== -->
+    <section class="services" id="services">
+        <div class="service-group">
+            <div class="section-label">SERVICE 01</div>
+            <h2>事業者様向けサービス</h2>
+
+            <!-- Service Diagram with Wheel Items -->
+            <div class="service-diagram-section">
+                <h3>事業者様向けサービスメニュー</h3>
+                <div class="service-diagram-container">
+                    <div class="service-diagram-bg">
+                        <img src="images/merry-obj.svg" alt="サービスメニュー図">
+                    </div>
+                    <div class="service-wheel">
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">税務顧問</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">税理士変更</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">セカンド<br>オピニオン</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">資金繰り<br>サポート</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">事業承継<br>・M&A</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">バックオフィス<br>・経理</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                        <div class="wheel-item">
+                            <div class="wheel-item-title">経営計画<br>策定</div>
+                            <div class="wheel-item-label">CLICK!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-items">
+                <div class="service-item">
+                    <h3>税務顧問・税理士変更</h3>
+                    <p>正確な月次決算と税務申告。税務調査対策を含めた、安心のコンプライアンス体制。最新の税制改正にも迅速に対応します。</p>
+                </div>
+                <div class="service-item">
+                    <h3>経営計画策定・実行サポート</h3>
+                    <p>経営計画策定、資金繰り改善、融資サポートなど、攻めの経営を支えるコンサルティング。貴社の成長目標を実現するための具体的なアクションプランを提案します。</p>
+                </div>
+                <div class="service-item">
+                    <h3>セカンドオピニオン</h3>
+                    <p>現在の税理士の対応に不安がある、別の視点からのアドバイスが欲しいというご要望にお応えします。</p>
+                </div>
+                <div class="service-item">
+                    <h3>資金繰りサポート</h3>
+                    <p>キャッシュフロー分析と改善提案。融資申請のサポートや資金計画の策定を通じて、経営の安定性を高めます。</p>
+                </div>
+                <div class="service-item">
+                    <h3>バックオフィス・経理サポート</h3>
+                    <p>最新のクラウド会計とITツールを導入し、経理業務を自動化。経営判断に必要なデータをリアルタイムで提供します。</p>
+                </div>
+                <div class="service-item">
+                    <h3>事業承継・M&A</h3>
+                    <p>円滑な世代交代と事業の継続を見据えた、最適な承継スキームの提案と実行支援。複雑な手続きもワンストップでサポートします。</p>
+                </div>
+            </div>
+            <a href="#" class="service-cta">事業者様向けサービスの詳細はこちら</a>
+        </div>
+
+        <div class="service-group">
+            <div class="section-label">SERVICE 02</div>
+            <h2>円満相続サービス</h2>
+
+            <div class="service-items">
+                <div class="service-item">
+                    <h3>相続対策</h3>
+                    <p>生前対策から遺言作成サポート、簡易診断、資産組み換えサポートまで、相続に関する総合的なアドバイスを提供します。</p>
+                </div>
+                <div class="service-item">
+                    <h3>相続税申告</h3>
+                    <p>相続手続き、分割案シミュレーション、申告納税まで、相続税に関するすべての手続きをサポートします。</p>
+                </div>
+            </div>
+            <a href="#" class="service-cta">円満相続サービスの詳細はこちら</a>
+        </div>
+    </section>
+
+    <!-- ========== Voice Section ========== -->
+    <section class="voice" id="voice">
+        <div class="section-label" style="text-align: center;">VOICE</div>
+        <h2>お客様の声</h2>
+        <div class="voice-items">
+            <div class="voice-item">
+                <div class="voice-item-image">
+                    <img src="images/voice_customer_1.png" alt="プラグマテック株式会社">
+                </div>
+                <blockquote>「安心して任せられる交渉力。正確な税務処理だけでなく、ビジネスで必ず遭遇する交渉、かけひきの場面で助けてくれるのがFLAP。」</blockquote>
+                <div class="company">プラグマテック株式会社</div>
+                <div class="office">神戸事務所</div>
+            </div>
+            <div class="voice-item">
+                <div class="voice-item-image">
+                    <img src="images/voice_customer_2.png" alt="株式会社ビー・フリー">
+                </div>
+                <blockquote>「選んだ基準は『人柄』でした。白井代表の考え方に触れ『いっしょに仕事をしていきたい』という言葉をもらったことで気持ちが動きました。」</blockquote>
+                <div class="company">株式会社ビー・フリー</div>
+                <div class="office">神戸事務所</div>
+            </div>
+            <div class="voice-item">
+                <div class="voice-item-image">
+                    <img src="images/voice_customer_3.png" alt="あさひ行政書士法人">
+                </div>
+                <blockquote>「顧問税理士は、信頼できる人に。『顧問税理士』になってもらう人は信頼でき、魅力的な人と仕事がしたいのでFLAPに顧問を依頼しました。」</blockquote>
+                <div class="company">あさひ行政書士法人</div>
+                <div class="office">神戸事務所</div>
+            </div>
+        </div>
+        <a href="#" class="voice-cta">一覧を見る</a>
+    </section>
+
+    <!-- ========== News Section ========== -->
+    <section class="news" id="news">
+        <div class="section-label">NEWS</div>
+        <h2>新着情報</h2>
+        <div class="news-items">
+            <div class="news-item">
+                <div class="news-item-date">2024.12.23</div>
+                <span class="news-item-category">お知らせ</span>
+                <a href="#" class="news-item-title">年末年始のお知らせ</a>
+            </div>
+            <div class="news-item">
+                <div class="news-item-date">2023.12.28</div>
+                <span class="news-item-category">お知らせ</span>
+                <a href="#" class="news-item-title">年末年始のお知らせ</a>
+            </div>
+            <div class="news-item">
+                <div class="news-item-date">2023.12.13</div>
+                <span class="news-item-category">イベント・セミナー</span>
+                <a href="#" class="news-item-title">【12月開催】顧問先様限定！『電子帳簿保存法説明会』第1弾　準備編：Zoom</a>
+            </div>
+        </div>
+        <a href="#" class="news-cta">一覧を見る</a>
+    </section>
+
+    <!-- ========== Contact Section ========== -->
+    <section class="contact" id="contact">
+        <h2>貴社の未来を共に描く</h2>
+        <div class="contact-offices">
+            <div class="office">
+                <h3>大阪事務所</h3>
+                <div class="office-phone">06-6456-0070</div>
+                <div class="office-hours">受付時間：9:00〜17:00</div>
+            </div>
+            <div class="office">
+                <h3>神戸事務所</h3>
+                <div class="office-phone">078-392-3800</div>
+                <div class="office-hours">受付時間：9:00〜17:00</div>
+            </div>
+            <div class="office">
+                <h3>東京事務所</h3>
+                <div class="office-phone">03-6205-4537</div>
+                <div class="office-hours">受付時間：9:00〜17:00</div>
+            </div>
+        </div>
+        <a href="tel:06-6456-0070" class="contact-cta">お問い合わせ</a>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">FLAPについて</a>
+            <a href="#">FLAPの強み</a>
+            <a href="#">サービス一覧</a>
+            <a href="#">スタッフ紹介</a>
+            <a href="#">会社概要</a>
+            <a href="#">お客様の声</a>
+            <a href="#">新着情報</a>
+            <a href="#">お問い合わせ</a>
+            <a href="#">アクセス</a>
+            <a href="#">採用情報</a>
+            <a href="#">プライバシーポリシー</a>
+        </div>
+        <p>&copy; 2024 税理士法人FLAP. All rights reserved.</p>
+    </footer>
+</body>
+</html>
