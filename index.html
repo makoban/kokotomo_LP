@@ -715,7 +715,7 @@
 
 .roi-numbers {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 30px;
 }
 
@@ -924,6 +924,10 @@
     .roi-total-content {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+
+    .roi-numbers {
+        flex-direction: column;
     }
 
     .roi-total {
@@ -1185,11 +1189,7 @@
 <section class="proof-strip" id="proof">
   <div class="container">
     <div style="text-align:center; margin-bottom: 14px;">
-      <div style="display:inline-block; background:#f0f1ff; color:var(--primary); padding:6px 14px; border-radius:999px; font-weight:800; font-size:0.85rem;">
-        <i class="fa-solid fa-shield-heart"></i> 安心材料（運用イメージ）
-      </div>
-      <h2 style="margin:14px 0 8px;">管理画面があるから、運用が続く</h2>
-      <p style="color:var(--text-sub); margin:0;">資料の取り込み・利用状況の把握など、導入後の運用をシンプルにします。</p>
+      <h2 style="margin:14px 0 8px;">ROI計算</h2>
     </div>
 
     <div class="proof-grid">
