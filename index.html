@@ -1078,6 +1078,75 @@
 
 </style>
 
+
+<style>
+/* === Single accordion under hero === */
+.single-accordion-wrap{ padding: 0 0 40px; background:#fff; }
+.single-accordion{ max-width:1080px; margin: 0 auto; padding: 0 20px; }
+details.kokotomo-accordion{
+  border:1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+  background:#fff;
+}
+details.kokotomo-accordion > summary{
+  cursor:pointer;
+  list-style:none;
+  padding: 18px 18px;
+  font-weight: 900;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  background: linear-gradient(135deg,#fff3cd 0%, #fffaeb 100%);
+  color:#ff6b00;
+  font-size: 1.05rem;
+}
+details.kokotomo-accordion > summary::-webkit-details-marker{ display:none; }
+details.kokotomo-accordion .chev{ transition: transform .2s ease; color:#ff6b00; }
+details.kokotomo-accordion[open] .chev{ transform: rotate(180deg); }
+.kokotomo-accordion-body{ padding: 18px 18px 24px; }
+.k-acc-title{ font-size:1.5rem; color:var(--primary); margin: 0 0 10px; line-height:1.4; }
+.k-acc-sub{ color:var(--text-sub); margin: 0 0 14px; }
+.k-acc-lead{ color:var(--text-main); margin: 0 0 18px; line-height:1.9; }
+.k-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 18px; }
+.k-card{ background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding: 16px; }
+.k-card h4{ margin:0 0 10px; font-size:1.05rem; color:#333; }
+.k-row{ display:flex; justify-content:space-between; gap:10px; padding: 6px 0; border-bottom:1px solid rgba(0,0,0,.06); }
+.k-row:last-child{ border-bottom:none; }
+.k-label{ color:#666; }
+.k-val{ font-weight:900; color:#333; }
+.k-val.cost{ color:#e53e3e; }
+.k-val.benefit{ color:#38a169; }
+.k-val.profit{ color:#d69e2e; font-size:1.15rem; }
+.k-badge{ display:inline-block; margin-top: 10px; padding: 7px 12px; border-radius:999px; font-weight:900; background:#f0f1ff; color:var(--primary); border:1px solid rgba(107,102,200,.18); }
+.k-total{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:#fff; border-radius:18px; padding: 18px; margin: 18px 0; }
+.k-total .amt{ font-size:2rem; font-weight:900; color:#ffd700; margin: 6px 0; }
+.k-total .note{ opacity:.9; margin:0 0 12px; }
+.k-total .mini{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+.k-mini{ background: rgba(255,255,255,.12); border-radius:12px; padding: 12px; }
+.k-mini .t{ opacity:.9; }
+.k-mini .v{ font-weight:900; font-size:1.1rem; }
+.k-cta{ margin: 18px 0 8px; text-align:center; }
+.k-cta p{ margin:0 0 10px; font-weight:800; color:var(--primary); }
+.k-hr{ height:1px; background: rgba(0,0,0,.08); margin: 22px 0; }
+
+.k-ul{ margin: 10px 0 0; padding-left: 18px; line-height: 1.9; color:#555; }
+.k-ul strong{ color:#333; }
+.k-callout{ background:#f0fff4; border-left: 4px solid var(--accent); border-radius:10px; padding: 12px 14px; font-weight:800; color: var(--accent); margin: 12px 0 0; }
+.k-legal{ background:#fff5f5; border:2px solid #e74c3c; border-radius:14px; padding: 16px; margin-top: 14px; }
+.k-legal h4{ margin:0 0 10px; color:#e74c3c; font-size:1.05rem; }
+.k-legal ul{ list-style:none; padding-left:0; margin:0; line-height:1.9; }
+.k-legal li{ margin-bottom:8px; }
+
+@media (max-width: 900px){
+  .single-accordion{ padding: 0 16px; }
+  .k-grid{ grid-template-columns: 1fr; }
+  .k-total .mini{ grid-template-columns: 1fr; }
+}
+</style>
+
 </head>
 <body>
 
@@ -1086,9 +1155,7 @@
             <div class="logo">
                 ココ<i class="fa-solid fa-heart" style="color:var(--accent); margin:0 2px;"></i>トモ
             </div>
-            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding: 8px 18px; font-size: 0.85rem;">
-                <i class="fa-brands fa-line"></i> 自社で使えるか相談
-            </a>
+            
         </div>
     </header>
 
@@ -1101,6 +1168,7 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
+                
                 <div class="hero-badges">
                     <span style="background:white; border:1px solid #ddd; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:bold; color:var(--text-sub);">
                         <i class="fa-solid fa-mobile-screen"></i> アプリ不要
@@ -1109,38 +1177,39 @@
                         <i class="fa-solid fa-user-secret"></i> 完全匿名
                     </span>
                 </div>
-                <p style="font-weight:700; color:#555; margin-bottom:10px;">
-                  離職・メンタル不調・内部リスクを<br>
-                  <strong style="color:var(--primary);">「問題になる前」にLINEで拾う。</strong>
+
+                <p style="font-weight:800; color:#555; margin: 8px 0 10px;">
+                  業務改善と、従業員の心の声を<br>
+                  <span style="color:var(--primary);">安全にひろう。</span>
                 </p>
 
                 <h1>
-                  <span style="color:var(--primary);">LINEで完結。</span><br>
-                  従業員の本音を可視化し、<br>
-                  会社を守るAIパートナー
+                  <span style="color:var(--primary);">LINEだけでできる。</span><br>
+                  業務も、人も、<br>
+                  会社を前に進めるAIサービス
                 </h1>
 
                 <p>
                   アプリ不要・完全匿名。<br>
                   従業員は普段使っているLINEのままで、<br>
-                  本音・悩み・違和感を自然に届けられます。
+                  業務の困りごとから心の違和感まで、<br>
+                  安心して届けられます。
                 </p>
 
-                <ul style="list-style:none; padding:0; margin:20px 0 30px; line-height:1.8;">
-                  <li>✔ 従業員の声が、日常的に集まる</li>
-                  <li>✔ 問題が大きくなる前に気づける</li>
+                <ul style="list-style:none; padding:0; margin:18px 0 22px; line-height:1.85;">
+                  <li>✔ 社内の「困った」をLINEで即解決（業務改善）</li>
+                  <li>✔ 相談・違和感を匿名で拾い、早期に気づける（心の声）</li>
                   <li>✔ 人事・管理職の対応コストを削減</li>
                 </ul>
 
-                <div style="margin-top: 10px;">
-                  <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
-                    <i class="fa-brands fa-line" style="font-size:1.4rem;"></i>
-                    LINEで自社の場合を相談する
-                  </a>
-                  <p style="font-size:0.8rem; color:#777; margin-top:8px;">
-                    ※ 無理な営業はありません／会社規模に合わせて効果を試算します
-                  </p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
+                        <i class="fa-brands fa-line" style="font-size:1.4rem;"></i> 無料相談・資料請求はこちら
+                    </a>
                 </div>
+    
+    
             </div>
 
             <div class="hero-visual">
@@ -1181,212 +1250,142 @@
     </section>
 
 
-<!-- ROI・コスト削減セクション -->
-<section id="roi" class="roi-section">
-    <div class="container">
-        <div class="roi-header">
-            <h2 class="roi-main-title">従業員のエンゲージメントを上げて、<br>コストを削減。その秘密は？</h2>
-            <p class="roi-subtitle">ココ♡トモなら、従業員満足度向上と経営効率化を同時に実現できます</p>
-        </div>
+<section class="single-accordion-wrap" id="roi-accordion">
+  <div class="single-accordion">
+    <details class="kokotomo-accordion">
+      <summary>
+        たった1%の改善で、年間300万円の削減とは？
+        <span class="chev">▾</span>
+      </summary>
+      <div class="kokotomo-accordion-body">
 
-        <div class="roi-intro">
-            <p class="roi-intro-text">
-                従業員の離職、メンタル不調、法令違反リスク…これらは企業にとって大きなコスト負担です。<br>
-                ココ♡トモは、従業員のエンゲージメントを高めながら、これらのコストを大幅に削減します。
-            </p>
-        </div>
-
-        <div class="roi-example">
-            <h3 class="roi-section-title">
-                <i class="fa-solid fa-calculator"></i> 30人企業の場合、こんなにお得！
-            </h3>
-
-            <div class="roi-content-grid">
-                <div class="roi-numbers">
-                    <div class="roi-year-card">
-                        <div class="year-badge year-1">初年度</div>
-                        <div class="roi-calculation">
-                            <div class="calc-row">
-                                <span class="calc-label">投資額</span>
-                                <span class="calc-value cost">622,200円</span>
-                            </div>
-                            <div class="calc-row">
-                                <span class="calc-label">削減効果</span>
-                                <span class="calc-value benefit">1,350,000円</span>
-                            </div>
-                            <div class="calc-divider"></div>
-                            <div class="calc-row profit-row">
-                                <span class="calc-label"><strong>利益</strong></span>
-                                <span class="calc-value profit">+727,800円</span>
-                            </div>
-                            <div class="roi-badge">ROI: 2.2倍</div>
-                        </div>
-                    </div>
-
-                    <div class="roi-year-card">
-                        <div class="year-badge year-2">2年目以降（毎年）</div>
-                        <div class="roi-calculation">
-                            <div class="calc-row">
-                                <span class="calc-label">投資額</span>
-                                <span class="calc-value cost">172,800円</span>
-                            </div>
-                            <div class="calc-row">
-                                <span class="calc-label">削減効果</span>
-                                <span class="calc-value benefit">1,350,000円</span>
-                            </div>
-                            <div class="calc-divider"></div>
-                            <div class="calc-row profit-row">
-                                <span class="calc-label"><strong>利益</strong></span>
-                                <span class="calc-value profit">+1,177,200円</span>
-                            </div>
-                            <div class="roi-badge">ROI: 7.8倍</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="roi-total">
-                <div class="roi-total-content">
-                    <div class="roi-total-left">
-                        <img src="images/roi_growth.png" alt="3年間の累計利益" class="roi-growth-image">
-                    </div>
-                    <div class="roi-total-right">
-                        <h4 class="roi-total-title">3年間の累計利益</h4>
-                        <div class="roi-total-amount">+3,082,000円</div>
-                        <p class="roi-total-note">（約308万円の利益！）</p>
-                        <div style="background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%); border: 3px solid #2196f3; border-radius: 15px; padding: 15px; margin: 15px 0; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);">
-                          <p style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #0d47a1; text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
-                            <i class="fa-solid fa-chart-line" style="color: #2196f3; margin-right: 10px; animation: pulse 1.5s ease-in-out infinite;"></i>
-                            続ければ続けるほど<br>
-                            <span style="font-size: 1.6rem; color: #1565c0;">効果が高い！</span>
-                            <i class="fa-solid fa-arrow-trend-up" style="color: #2196f3; margin-left: 10px; animation: pulse 1.5s ease-in-out infinite;"></i>
-                          </p>
-                        </div>
-                        <div class="roi-total-details">
-                            <div class="detail-item">
-                                <span class="detail-label">投資額合計</span>
-                                <span class="detail-value">968,000円</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">削減効果合計</span>
-                                <span class="detail-value">4,050,000円</span>
-                            </div>
-                            <div class="detail-item highlight">
-                                <span class="detail-label">平均ROI</span>
-                                <span class="detail-value">4.2倍</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="roi-cta">
-            <p class="roi-cta-text">まずは無料相談で、あなたの会社の削減効果を試算してみませんか？</p>
-            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line btn-large">
-                <i class="fa-brands fa-line"></i> 無料相談・資料請求はこちら
-            </a>
-        </div>
-    </div>
-</section>
-
-
-<section class="proof-strip" id="proof">
-  <div class="container">
-    <div style="text-align:center; margin-bottom: 14px;">
-      <h2 style="margin:14px 0 8px;">ROI計算</h2>
-    </div>
-
-    <div class="proof-grid">
-      <div class="proof-copy">
-        <h3><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 10px;"></i>ROI計算の根拠</h3>
-        
-        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-top: 20px; margin-bottom: 10px;">
-          <i class="fa-solid fa-building" style="margin-right: 8px;"></i>前提条件
-        </h4>
-        <ul class="proof-bullets" style="margin-bottom: 20px;">
-          <li><i class="fa-solid fa-users" style="color: var(--primary); margin-right: 8px;"></i><strong>従業員数:</strong> 30名</li>
-          <li><i class="fa-solid fa-user-xmark" style="color: var(--primary); margin-right: 8px;"></i><strong>年間離職率:</strong> 15%（4.5名 ≒ 5名/年）</li>
-          <li><i class="fa-solid fa-coins" style="color: var(--primary); margin-right: 8px;"></i><strong>1人あたりの離職コスト:</strong> 300万円</li>
-          <li><i class="fa-solid fa-sack-dollar" style="color: var(--primary); margin-right: 8px;"></i><strong>従業員の平均年収:</strong> 400万円</li>
-          <li><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i><strong>労働時間:</strong> 年間2,000時間</li>
-          <li><i class="fa-solid fa-yen-sign" style="color: var(--primary); margin-right: 8px;"></i><strong>時給:</strong> 400万円 ÷ 2,000時間 = 2,000円</li>
-        </ul>
-
-        <div style="background: linear-gradient(135deg, #fff3cd 0%, #fffaeb 100%); border: 3px solid #ffc107; border-radius: 15px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);">
-          <p style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #ff6b00; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
-            <i class="fa-solid fa-star" style="color: #ffc107; margin-right: 10px; animation: pulse 1.5s ease-in-out infinite;"></i>
-            たった<span style="font-size: 1.8rem; color: #e65100;">1%</span>の改善でも効果を実感！！
-            <i class="fa-solid fa-star" style="color: #ffc107; margin-left: 10px; animation: pulse 1.5s ease-in-out infinite;"></i>
-          </p>
-        </div>
-        
-        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 10px;">
-          <i class="fa-solid fa-arrow-trend-down" style="margin-right: 8px;"></i>年間削減額（1%改善の場合）
-        </h4>
-        <ul class="proof-bullets" style="margin-bottom: 20px;">
-          <li><i class="fa-solid fa-user-shield" style="color: var(--accent); margin-right: 8px;"></i><strong>離職防止:</strong>
-            <ul style="margin-top: 8px; margin-left: 20px; list-style: none;">
-              <li>現在の離職コスト: 5名 × 300万円 = 1,500万円/年</li>
-              <li>1%改善: 1,500万円 × 1% = <strong style="color: var(--accent);">15万円/年の削減</strong></li>
-            </ul>
-          </li>
-          <li style="margin-top: 12px;"><i class="fa-solid fa-rocket" style="color: var(--accent); margin-right: 8px;"></i><strong>業務改善（1%改善）:</strong>
-            <ul style="margin-top: 8px; margin-left: 20px; list-style: none;">
-              <li>現在の総人件費: 30名 × 400万円 = 1億2,000万円/年</li>
-              <li>1%改善: 1億2,000万円 × 1% = <strong style="color: var(--accent);">120万円/年の削減</strong></li>
-            </ul>
-          </li>
-        </ul>
-        <p style="font-weight: 700; font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; padding: 15px; background: #f0fff4; border-left: 4px solid var(--accent); border-radius: 8px;">
-          <i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i>合計: 135万円/年の削減
+        <h2 class="k-acc-title">従業員のエンゲージメントを上げて、コストを削減。その秘密は？</h2>
+        <p class="k-acc-sub">ココ♡トモなら、従業員満足度向上と経営効率化を同時に実現できます</p>
+        <p class="k-acc-lead">
+          従業員の離職、メンタル不調、法令違反リスク…これらは企業にとって大きなコスト負担です。<br>
+          ココ♡トモは、従業員のエンゲージメントを高めながら、これらのコストを大幅に削減します。
         </p>
 
-        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px;">
-          <i class="fa-solid fa-chart-pie" style="margin-right: 8px;"></i>ROI（投資対効果）
-        </h4>
-        <ul class="proof-bullets">
-          <li><i class="fa-solid fa-star" style="color: #FFD700; margin-right: 8px;"></i><strong>初年度:</strong> 投資 62.2万円 → リターン 135万円 → <span style="color: var(--accent); font-weight: 700; font-size: 1.1rem;">ROI: 約2.2倍</span></li>
-          <li><i class="fa-solid fa-trophy" style="color: #FFD700; margin-right: 8px;"></i><strong>2年目以降:</strong> 投資 17.3万円 → リターン 135万円 → <span style="color: var(--accent); font-weight: 700; font-size: 1.1rem;">ROI: 約7.8倍</span></li>
-        </ul>
-        <p style="margin-top: 20px; font-weight: 700; font-size: 1.1rem; color: var(--primary); padding: 15px; background: #f0f1ff; border-radius: 8px; text-align: center;">
-          <i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 8px;"></i>初年度から黒字、2年目以降は毎年117.7万円の利益
-        </p>
+        <h3 style="margin:0 0 10px; color:var(--primary); font-size:1.2rem; line-height:1.4;">
+          30人企業の場合、こんなにお得！
+        </h3>
 
-        <h4 style="font-size: 1.1rem; font-weight: 700; color: #e74c3c; margin-top: 30px; margin-bottom: 10px;">
-          <i class="fa-solid fa-scale-balanced" style="margin-right: 8px;"></i>法令遵守によるリスク回避
-        </h4>
-        <div style="background: #fff5f5; border: 2px solid #e74c3c; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-          <p style="margin: 0 0 15px 0; font-weight: 600; color: #e74c3c;">
-            <i class="fa-solid fa-shield-halved" style="margin-right: 8px;"></i>ココ♪トモなら5つの法律に対応できます：
-          </p>
-          <ul style="list-style: none; padding-left: 0; margin: 0;">
-            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i><strong>公益通報者保護法</strong>：内部通報体制の整備（従業員301人以上は義務）</li>
-            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i><strong>労働基準法</strong>：就業規則の周知（従業員10人以上は義務）</li>
-            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i><strong>パワハラ防止法</strong>：ハラスメント防止措置（全企業義務）</li>
-            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i><strong>労働安全衛生法</strong>：ストレスチェック（従業員50人以上は義務）</li>
-            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i><strong>育児・介護休業法</strong>：相談窓口設置・制度周知（全企業義務）</li>
+        <div class="k-grid">
+          <div class="k-card">
+            <h4>初年度</h4>
+            <div class="k-row"><span class="k-label">投資額</span><span class="k-val cost">622,200円</span></div>
+            <div class="k-row"><span class="k-label">削減効果</span><span class="k-val benefit">1,350,000円</span></div>
+            <div class="k-row"><span class="k-label"><strong>利益</strong></span><span class="k-val profit">+727,800円</span></div>
+            <span class="k-badge">ROI: 2.2倍</span>
+          </div>
+
+          <div class="k-card">
+            <h4>2年目以降（毎年）</h4>
+            <div class="k-row"><span class="k-label">投資額</span><span class="k-val cost">172,800円</span></div>
+            <div class="k-row"><span class="k-label">削減効果</span><span class="k-val benefit">1,350,000円</span></div>
+            <div class="k-row"><span class="k-label"><strong>利益</strong></span><span class="k-val profit">+1,177,200円</span></div>
+            <span class="k-badge">ROI: 7.8倍</span>
+          </div>
+        </div>
+
+        <div class="k-total">
+          <div style="font-weight:900; font-size:1.1rem;">3年間の累計利益</div>
+          <div class="amt">+3,082,000円</div>
+          <p class="note">（約308万円の利益！）</p>
+          <p style="margin:0 0 12px; font-weight:900;">続ければ続けるほど<br>効果が高い！</p>
+          <div class="mini">
+            <div class="k-mini"><div class="t">投資額合計</div><div class="v">968,000円</div></div>
+            <div class="k-mini"><div class="t">削減効果合計</div><div class="v">4,050,000円</div></div>
+            <div class="k-mini"><div class="t">平均ROI</div><div class="v">4.2倍</div></div>
+          </div>
+        </div>
+
+        <div class="k-cta">
+          <p>まずは無料相談で、あなたの会社の削減効果を試算してみませんか？</p>
+          <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line btn-large">
+            <i class="fa-brands fa-line"></i> 無料相談・資料請求はこちら
+          </a>
+        </div>
+
+        <div class="k-hr"></div>
+
+        <h3 style="margin:0 0 6px; color:var(--primary); font-size:1.2rem;">ROI計算</h3>
+        <h4 style="margin:12px 0 6px; color:#333; font-size:1.05rem;">ROI計算の根拠</h4>
+
+        <div class="k-card" style="margin-top:10px;">
+          <h4 style="margin-bottom:8px;">前提条件</h4>
+          <ul class="k-ul">
+            <li><strong>従業員数:</strong> 30名</li>
+            <li><strong>年間離職率:</strong> 15%（4.5名 ≒ 5名/年）</li>
+            <li><strong>1人あたりの離職コスト:</strong> 300万円</li>
+            <li><strong>従業員の平均年収:</strong> 400万円</li>
+            <li><strong>労働時間:</strong> 年間2,000時間</li>
+            <li><strong>時給:</strong> 400万円 ÷ 2,000時間 = 2,000円</li>
           </ul>
-          <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e74c3c;">
-            <p style="margin: 0; font-weight: 600; color: #e74c3c;">
-              <i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i>法令違反時のリスク：
-            </p>
-            <ul style="list-style: none; padding-left: 0; margin: 10px 0 0 0;">
-              <li style="margin-bottom: 5px;"><i class="fa-solid fa-exclamation-circle" style="color: #e74c3c; margin-right: 8px;"></i>罰金：最大50万円</li>
-              <li style="margin-bottom: 5px;"><i class="fa-solid fa-exclamation-circle" style="color: #e74c3c; margin-right: 8px;"></i>訴訟リスク：数百万円～数千万円の損害賠償</li>
-              <li><i class="fa-solid fa-exclamation-circle" style="color: #e74c3c; margin-right: 8px;"></i>企業イメージの毀損</li>
+
+          <div style="margin-top:14px; padding:14px; border-radius:14px; border:2px solid #ffc107; background: linear-gradient(135deg,#fff3cd,#fffaeb); font-weight:900; color:#ff6b00; text-align:center;">
+            たった1%の改善でも効果を実感！！
+          </div>
+
+          <h4 style="margin:14px 0 6px; color:var(--accent);">年間削減額（1%改善の場合）</h4>
+          <ul class="k-ul">
+            <li><strong>離職防止:</strong>
+              <ul class="k-ul" style="margin-top:6px;">
+                <li>現在の離職コスト: 5名 × 300万円 = 1,500万円/年</li>
+                <li>1%改善: 1,500万円 × 1% = <strong style="color:var(--accent);">15万円/年の削減</strong></li>
+              </ul>
+            </li>
+            <li style="margin-top:8px;"><strong>業務改善（1%改善）:</strong>
+              <ul class="k-ul" style="margin-top:6px;">
+                <li>現在の総人件費: 30名 × 400万円 = 1億2,000万円/年</li>
+                <li>1%改善: 1億2,000万円 × 1% = <strong style="color:var(--accent);">120万円/年の削減</strong></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="k-callout">合計: 135万円/年の削減</div>
+
+          <h4 style="margin:14px 0 6px; color:var(--primary);">ROI（投資対効果）</h4>
+          <ul class="k-ul">
+            <li><strong>初年度:</strong> 投資 62.2万円 → リターン 135万円 → <strong style="color:var(--accent);">ROI: 約2.2倍</strong></li>
+            <li><strong>2年目以降:</strong> 投資 17.3万円 → リターン 135万円 → <strong style="color:var(--accent);">ROI: 約7.8倍</strong></li>
+          </ul>
+          <p style="margin:12px 0 0; font-weight:900; color:var(--primary); background:#f0f1ff; padding:12px; border-radius:10px; text-align:center;">
+            初年度から黒字、2年目以降は毎年117.7万円の利益
+          </p>
+
+          <div class="k-legal">
+            <h4>法令遵守によるリスク回避</h4>
+            <p style="margin:0 0 10px; font-weight:800; color:#e74c3c;">ココ♪トモなら5つの法律に対応できます：</p>
+            <ul>
+              <li>✔ <strong>公益通報者保護法</strong>：内部通報体制の整備（従業員301人以上は義務）</li>
+              <li>✔ <strong>労働基準法</strong>：就業規則の周知（従業員10人以上は義務）</li>
+              <li>✔ <strong>パワハラ防止法</strong>：ハラスメント防止措置（全企業義務）</li>
+              <li>✔ <strong>労働安全衛生法</strong>：ストレスチェック（従業員50人以上は義務）</li>
+              <li>✔ <strong>育児・介護休業法</strong>：相談窓口設置・制度周知（全企業義務）</li>
+            </ul>
+            <p style="margin:12px 0 6px; font-weight:900; color:#e74c3c;">法令違反時のリスク：</p>
+            <ul style="list-style:none; padding-left:0; margin:0; line-height:1.9;">
+              <li>・罰金：最大50万円</li>
+              <li>・訴訟リスク：数百万円～数千万円の損害賠償</li>
+              <li>・企業イメージの毀損</li>
             </ul>
           </div>
         </div>
+
       </div>
-    </div>
+    </details>
   </div>
 </section>
-<div class="mobile-cta">
-  <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
-    <i class="fa-brands fa-line"></i> 自社で使えるか相談する
-  </a>
-</div>
+
+
+
+
+
+<!-- ROI・コスト削減セクション -->
+
+
+
+
 
 
 
