@@ -638,6 +638,307 @@
             
             .provider-grid { flex-direction: column; gap: 20px; align-items: center; }
         }
+
+/* ROI・コスト削減セクション */
+.roi-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+}
+
+.roi-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.roi-main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.roi-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-sub);
+    font-weight: 500;
+}
+
+.roi-intro {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.roi-intro-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-main);
+}
+
+.roi-example {
+    margin-bottom: 80px;
+}
+
+.roi-section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.roi-section-title i {
+    margin-right: 10px;
+    color: var(--accent);
+}
+
+.roi-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.roi-visual {
+    text-align: center;
+}
+
+.roi-hero-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.roi-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.roi-year-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.year-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.year-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.year-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.roi-calculation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.calc-label {
+    color: var(--text-sub);
+}
+
+.calc-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.calc-value.cost {
+    color: #e53e3e;
+}
+
+.calc-value.benefit {
+    color: #38a169;
+}
+
+.calc-value.profit {
+    color: #d69e2e;
+    font-size: 1.8rem;
+}
+
+.calc-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 10px 0;
+}
+
+.profit-row {
+    background: #fffaf0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.roi-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.roi-total {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+}
+
+.roi-total-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.roi-total-left {
+    text-align: center;
+}
+
+.roi-growth-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 16px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.roi-total-right {
+    color: white;
+}
+
+.roi-total-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.roi-total-amount {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.roi-total-note {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.roi-total-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.detail-item.highlight {
+    background: rgba(255, 215, 0, 0.2);
+    border: 2px solid #ffd700;
+}
+
+.detail-label {
+    font-size: 1.1rem;
+}
+
+.detail-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.roi-cta {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.roi-cta-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.btn-large {
+    font-size: 1.2rem;
+    padding: 20px 60px;
+}
+
+@media (max-width: 900px) {
+    .roi-section {
+        padding: 60px 15px;
+    }
+
+    .roi-main-title {
+        font-size: 1.8rem;
+    }
+
+    .roi-main-title br {
+        display: none;
+    }
+
+    .roi-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .roi-content-grid,
+    .roi-total-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .roi-total {
+        padding: 30px 20px;
+    }
+
+    .roi-total-amount {
+        font-size: 2.5rem;
+    }
+
+    .btn-large {
+        font-size: 1rem;
+        padding: 16px 40px;
+    }
+}
     </style>
 </head>
 <body>
@@ -724,6 +1025,112 @@
     <div style="text-align: center; padding: 10px 20px 40px; font-size: 0.8rem; color: #888; line-height:1.4;">
         <i class="fa-solid fa-book-medical" style="color:var(--primary);"></i> 厚生労働省のメンタルヘルス対策ガイドライン等を参考にした設計
     </div>
+
+<!-- ROI・コスト削減セクション -->
+<section id="roi" class="roi-section">
+    <div class="container">
+        <div class="roi-header">
+            <h2 class="roi-main-title">従業員のエンゲージメントを上げて、<br>コストを削減。その秘密は？</h2>
+            <p class="roi-subtitle">ココ♡トモなら、従業員満足度向上と経営効率化を同時に実現できます</p>
+        </div>
+
+        <div class="roi-intro">
+            <p class="roi-intro-text">
+                従業員の離職、メンタル不調、法令違反リスク…これらは企業にとって大きなコスト負担です。<br>
+                ココ♡トモは、従業員のエンゲージメントを高めながら、これらのコストを大幅に削減します。
+            </p>
+        </div>
+
+        <div class="roi-example">
+            <h3 class="roi-section-title">
+                <i class="fa-solid fa-calculator"></i> 30人企業の場合、こんなにお得！
+            </h3>
+
+            <div class="roi-content-grid">
+                <div class="roi-visual">
+                    <img src="images/roi_hero.png" alt="コスト削減のイメージ" class="roi-hero-image">
+                </div>
+
+                <div class="roi-numbers">
+                    <div class="roi-year-card">
+                        <div class="year-badge year-1">初年度</div>
+                        <div class="roi-calculation">
+                            <div class="calc-row">
+                                <span class="calc-label">投資額</span>
+                                <span class="calc-value cost">622,200円</span>
+                            </div>
+                            <div class="calc-row">
+                                <span class="calc-label">削減効果</span>
+                                <span class="calc-value benefit">1,350,000円</span>
+                            </div>
+                            <div class="calc-divider"></div>
+                            <div class="calc-row profit-row">
+                                <span class="calc-label"><strong>利益</strong></span>
+                                <span class="calc-value profit">+727,800円</span>
+                            </div>
+                            <div class="roi-badge">ROI: 2.2倍</div>
+                        </div>
+                    </div>
+
+                    <div class="roi-year-card">
+                        <div class="year-badge year-2">2年目以降（毎年）</div>
+                        <div class="roi-calculation">
+                            <div class="calc-row">
+                                <span class="calc-label">投資額</span>
+                                <span class="calc-value cost">172,800円</span>
+                            </div>
+                            <div class="calc-row">
+                                <span class="calc-label">削減効果</span>
+                                <span class="calc-value benefit">1,350,000円</span>
+                            </div>
+                            <div class="calc-divider"></div>
+                            <div class="calc-row profit-row">
+                                <span class="calc-label"><strong>利益</strong></span>
+                                <span class="calc-value profit">+1,177,200円</span>
+                            </div>
+                            <div class="roi-badge">ROI: 7.8倍</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roi-total">
+                <div class="roi-total-content">
+                    <div class="roi-total-left">
+                        <img src="images/roi_growth.png" alt="3年間の累計利益" class="roi-growth-image">
+                    </div>
+                    <div class="roi-total-right">
+                        <h4 class="roi-total-title">3年間の累計利益</h4>
+                        <div class="roi-total-amount">+3,082,000円</div>
+                        <p class="roi-total-note">（約308万円の利益！）</p>
+                        <div class="roi-total-details">
+                            <div class="detail-item">
+                                <span class="detail-label">投資額合計</span>
+                                <span class="detail-value">968,000円</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">削減効果合計</span>
+                                <span class="detail-value">4,050,000円</span>
+                            </div>
+                            <div class="detail-item highlight">
+                                <span class="detail-label">平均ROI</span>
+                                <span class="detail-value">4.2倍</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="roi-cta">
+            <p class="roi-cta-text">まずは無料相談で、あなたの会社の削減効果を試算してみませんか？</p>
+            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line btn-large">
+                <i class="fa-brands fa-line"></i> 無料相談・資料請求はこちら
+            </a>
+        </div>
+    </div>
+</section>
+
 
     <section class="two-axes-section">
         <div class="container">
