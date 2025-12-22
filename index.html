@@ -638,6 +638,253 @@
             
             .provider-grid { flex-direction: column; gap: 20px; align-items: center; }
         }
+
+<style>
+/* 法令遵守セクション */
+.compliance-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+}
+
+.compliance-intro {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* 法律カードグリッド */
+.compliance-laws {
+    margin-bottom: 80px;
+}
+
+.law-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.law-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.law-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.law-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.law-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c5282;
+    margin-bottom: 15px;
+}
+
+.law-obligation {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.law-penalty {
+    font-size: 0.9rem;
+    color: #c53030;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.law-solution {
+    background: #f0f9ff;
+    border-left: 4px solid #3182ce;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.solution-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #2c5282;
+    margin-bottom: 8px;
+}
+
+.solution-text {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.7;
+}
+
+/* メリットグリッド */
+.compliance-benefits {
+    margin-bottom: 60px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.benefit-item {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.benefit-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.benefit-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2c5282;
+    margin-bottom: 15px;
+}
+
+.benefit-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* 警告ボックス */
+.compliance-warning {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.warning-box {
+    background: #fff5f5;
+    border: 2px solid #fc8181;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.warning-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #c53030;
+    margin-bottom: 20px;
+}
+
+.warning-list {
+    list-style: none;
+    padding: 0;
+}
+
+.warning-list li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.warning-list li:before {
+    content: "⚠️";
+    position: absolute;
+    left: 0;
+}
+
+/* CTA */
+.compliance-cta {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c5282;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 18px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .compliance-section {
+        padding: 60px 15px;
+    }
+
+    .law-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .law-title {
+        font-size: 1.1rem;
+    }
+
+    .benefit-title {
+        font-size: 1rem;
+    }
+
+    .cta-text {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 15px 40px;
+    }
+}
+</style>
+
     </style>
 </head>
 <body>
@@ -1457,6 +1704,153 @@
             </div>
         </div>
     </section>
+
+<!-- 法令遵守セクション -->
+<section id="compliance" class="compliance-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">法令遵守をもっと簡単に</h2>
+            <p class="section-subtitle">複雑化する法的義務に、ココトモが対応します</p>
+        </div>
+
+        <!-- 法令遵守の重要性 -->
+        <div class="compliance-intro">
+            <p class="intro-text">
+                近年、企業が遵守すべき法律は増加・複雑化しており、対応が追いつかない企業も少なくありません。特に中小企業では、専任の担当者を置くことが難しく、<strong>法令違反のリスク</strong>が高まっています。ココトモは、以下の法令遵守をサポートし、企業のリスクを大幅に軽減します。
+            </p>
+        </div>
+
+        <!-- 対応する法律一覧 -->
+        <div class="compliance-laws">
+            <h3 class="subsection-title">ココトモが対応する5つの法律</h3>
+            
+            <div class="law-grid">
+                <!-- 公益通報者保護法 -->
+                <div class="law-card">
+                    <div class="law-icon">🛡️</div>
+                    <h4 class="law-title">公益通報者保護法</h4>
+                    <p class="law-obligation">【義務】従業員301人以上：内部通報体制整備</p>
+                    <p class="law-penalty">【罰則】守秘義務違反：30万円以下の罰金</p>
+                    <div class="law-solution">
+                        <p class="solution-label">ココトモの対応</p>
+                        <p class="solution-text">✓ 匿名メッセージ送信機能で内部通報窓口を設置<br>
+                        ✓ 24時間365日対応、専用システム不要</p>
+                    </div>
+                </div>
+
+                <!-- 労働基準法 -->
+                <div class="law-card">
+                    <div class="law-icon">📋</div>
+                    <h4 class="law-title">労働基準法</h4>
+                    <p class="law-obligation">【義務】従業員10人以上：就業規則の周知</p>
+                    <p class="law-penalty">【罰則】周知義務違反：30万円以下の罰金</p>
+                    <div class="law-solution">
+                        <p class="solution-label">ココトモの対応</p>
+                        <p class="solution-text">✓ 資料検索機能でいつでも閲覧可能<br>
+                        ✓ 案内板管理で全従業員に即座に配信</p>
+                    </div>
+                </div>
+
+                <!-- パワハラ防止法 -->
+                <div class="law-card">
+                    <div class="law-icon">🤝</div>
+                    <h4 class="law-title">パワハラ防止法</h4>
+                    <p class="law-obligation">【義務】全企業：ハラスメント防止措置（2022年4月〜）</p>
+                    <p class="law-penalty">【罰則】対応不十分な場合：企業名公表、損害賠償リスク</p>
+                    <div class="law-solution">
+                        <p class="solution-label">ココトモの対応</p>
+                        <p class="solution-text">✓ AI悩み相談で24時間対応の相談窓口<br>
+                        ✓ 匿名メッセージ送信で安心して通報可能</p>
+                    </div>
+                </div>
+
+                <!-- 労働安全衛生法 -->
+                <div class="law-card">
+                    <div class="law-icon">💚</div>
+                    <h4 class="law-title">労働安全衛生法</h4>
+                    <p class="law-obligation">【義務】従業員50人以上：年1回ストレスチェック</p>
+                    <p class="law-penalty">【罰則】未実施：50万円以下の罰金</p>
+                    <div class="law-solution">
+                        <p class="solution-label">ココトモの対応</p>
+                        <p class="solution-text">✓ 悩み診断機能でメンタルヘルスをチェック<br>
+                        ✓ AI相談で早期発見・早期対応を実現</p>
+                    </div>
+                </div>
+
+                <!-- 育児・介護休業法 -->
+                <div class="law-card">
+                    <div class="law-icon">👶</div>
+                    <h4 class="law-title">育児・介護休業法</h4>
+                    <p class="law-obligation">【義務】全企業：相談窓口設置、制度周知</p>
+                    <p class="law-penalty">【罰則】報告義務違反：20万円以下の過料</p>
+                    <div class="law-solution">
+                        <p class="solution-label">ココトモの対応</p>
+                        <p class="solution-text">✓ 有給管理機能で休業申請・管理を効率化<br>
+                        ✓ AI相談で育児・介護の悩みに24時間対応</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ココトモ導入のメリット -->
+        <div class="compliance-benefits">
+            <h3 class="subsection-title">ココトモで法令遵守を実現する5つのメリット</h3>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-number">1</div>
+                    <h4 class="benefit-title">複数の法令に一つのツールで対応</h4>
+                    <p class="benefit-text">従来は法律ごとに別々のシステムや担当者が必要でしたが、ココトモなら一つのツールで5つの法令遵守義務に対応できます。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">2</div>
+                    <h4 class="benefit-title">専任担当者不要で導入・運用が簡単</h4>
+                    <p class="benefit-text">AIが24時間対応するため、専任の相談窓口担当者を置く必要がありません。管理者は必要に応じて対応するだけで済みます。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">3</div>
+                    <h4 class="benefit-title">罰則リスクや訴訟リスクを大幅に軽減</h4>
+                    <p class="benefit-text">法令違反による罰金（最大50万円）や訴訟リスクを回避できます。また、企業イメージの低下を防ぎます。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">4</div>
+                    <h4 class="benefit-title">従業員が使い慣れたLINEで利用</h4>
+                    <p class="benefit-text">専用アプリのインストールや新しいシステムの学習が不要。従業員の利用ハードルが低く、確実に法令遵守を実現できます。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">5</div>
+                    <h4 class="benefit-title">管理画面で状況を可視化</h4>
+                    <p class="benefit-text">相談状況、診断結果、アンケート結果などを管理画面で一元管理。法令遵守の実施状況を経営層に報告しやすくなります。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- リスク警告 -->
+        <div class="compliance-warning">
+            <div class="warning-box">
+                <h4 class="warning-title">⚠️ 法令違反のリスク</h4>
+                <ul class="warning-list">
+                    <li><strong>公益通報体制未整備:</strong> 訴訟リスク、企業イメージ低下</li>
+                    <li><strong>就業規則未周知:</strong> 30万円以下の罰金</li>
+                    <li><strong>ハラスメント対策不備:</strong> 損害賠償請求、企業名公表</li>
+                    <li><strong>ストレスチェック未実施:</strong> 50万円以下の罰金</li>
+                    <li><strong>育児休業制度未整備:</strong> 20万円以下の過料</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="compliance-cta">
+            <p class="cta-text">ココトモで法令遵守を実現し、安心して事業に専念できる環境を構築しましょう。</p>
+            <a href="#contact" class="cta-button">お問い合わせ・資料請求</a>
+        </div>
+    </div>
+</section>
+
 
     <footer>
         <div class="container">
