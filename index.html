@@ -2491,5 +2491,111 @@ footer {
 }
 </style>
 
+
+<!-- === REAL MOBILE REFLOW FIX (no clipping, no hiding text) === -->
+<style>
+
+/* 1. Never clip text */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  margin: 0;
+}
+
+/* 2. Fluid typography */
+html {
+  font-size: clamp(14px, 3.8vw, 16px);
+}
+
+h1 {
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  line-height: 1.35;
+}
+h2 {
+  font-size: clamp(1.4rem, 5.2vw, 2rem);
+  line-height: 1.4;
+}
+h3 {
+  font-size: clamp(1.2rem, 4.8vw, 1.6rem);
+}
+p, li {
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+  line-height: 1.8;
+}
+
+/* 3. Natural Japanese wrapping */
+h1, h2, h3, p, li {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: strict;
+  white-space: normal;
+}
+
+/* 4. Containers must fit viewport */
+.container {
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 5. REMOVE fixed heights on mobile */
+@media (max-width: 768px) {
+
+  .line-screen,
+  .chat-area {
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+
+  /* Phone mockup should grow naturally */
+  .phone-mockup {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  /* Grids collapse cleanly */
+  .hero-content,
+  .feature-block,
+  .roi-numbers,
+  .roi-total-content,
+  .concept-grid,
+  .axes-grid,
+  .recommend-grid,
+  .report-container {
+    display: block;
+  }
+
+  /* Cards breathe */
+  .card,
+  .roi-year-card,
+  .recommend-card,
+  .axis-card,
+  .feature-text,
+  .proof-copy {
+    padding: 20px;
+  }
+
+  /* Buttons never overflow */
+  .btn,
+  .btn-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* 6. Images always scale */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+</style>
+
 </body>
 </html>
