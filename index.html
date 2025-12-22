@@ -639,6 +639,63 @@
             .provider-grid { flex-direction: column; gap: 20px; align-items: center; }
         }
     </style>
+
+<style>
+  /* hero badges */
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;justify-content:flex-start;}
+  @media (max-width:900px){.hero-badges{justify-content:center;}}
+
+  /* Keep hero visual strong on mobile (image first) */
+  @media (max-width:900px){
+    .hero-content{flex-direction:column; text-align:center;}
+    .hero-visual{order:-1;} /* phone mockup comes first */
+    .hero-text{order:1;}
+    .hero-text p{max-width: 640px; margin-left:auto; margin-right:auto;}
+    .hero-text > div[style*="margin-top: 30px"]{display:flex; justify-content:center;}
+  }
+
+  /* proof strip */
+  .proof-strip{padding: 30px 0 70px; background:#fff;}
+  .proof-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-top:22px;}
+  .proof-copy{background:#f7f8ff;border:1px solid rgba(107,102,200,.15);border-radius:18px;padding:22px;box-shadow:0 10px 25px rgba(0,0,0,.05);}
+  .proof-copy h3{margin:0 0 10px;font-size:1.3rem;}
+  .proof-copy p{margin:0;color:var(--text-sub);}
+  .proof-bullets{margin:12px 0 0;padding-left:18px;color:#555;line-height:1.9;}
+  .proof-shots{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .shot{border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:0 10px 20px rgba(0,0,0,.06);}
+  .shot img{width:100%;height:auto;display:block;}
+  .shot small{display:block;padding:10px 12px;font-size:.78rem;color:#666;background:#fafafa;border-top:1px solid rgba(0,0,0,.06);}
+
+  /* recommend */
+  .recommend-section{padding: 90px 0; background: linear-gradient(135deg,#ffffff 0%, #f5f7fa 100%);}
+  .recommend-head{text-align:center;margin-bottom:44px;}
+  .recommend-head p{color:var(--text-sub);margin:0 auto;max-width:860px;}
+  .recommend-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;}
+  .recommend-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;min-height:320px;}
+  .recommend-card .img{aspect-ratio:16/10;background:#f2f4f7;overflow:hidden;}
+  .recommend-card .img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .recommend-card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .recommend-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;color:var(--primary);background:#f0f1ff;padding:6px 12px;border-radius:999px;width:fit-content;}
+  .recommend-card h3{font-size:1.05rem;margin:0;}
+  .recommend-card p{margin:0;color:var(--text-sub);font-size:.9rem;line-height:1.7;}
+  .recommend-card ul{margin:0;padding-left:18px;color:#555;font-size:.88rem;line-height:1.8;}
+  .recommend-cta{text-align:center;margin-top:34px;}
+
+  /* fixed CTA on mobile */
+  .mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:2000;padding:10px 12px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(0,0,0,.06);}
+  .mobile-cta .btn{width:100%;max-width:520px;margin:0 auto;justify-content:center;}
+  @media (max-width:768px){
+    .proof-grid{grid-template-columns:1fr;}
+    .proof-shots{grid-template-columns:1fr 1fr;}
+    .recommend-grid{grid-template-columns:1fr;gap:14px;}
+    .mobile-cta{display:block;}
+    body{padding-bottom:74px;}
+  }
+  @media (max-width:420px){
+    .proof-shots{grid-template-columns:1fr;}
+  }
+</style>
+
 </head>
 <body>
 
@@ -648,7 +705,7 @@
                 ココ<i class="fa-solid fa-heart" style="color:var(--accent); margin:0 2px;"></i>トモ
             </div>
             <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding: 8px 18px; font-size: 0.85rem;">
-                <i class="fa-brands fa-line"></i> お問い合わせ
+                <i class="fa-brands fa-line"></i> 自社で使えるか相談
             </a>
         </div>
     </header>
@@ -662,7 +719,7 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; justify-content: flex-start; @media(max-width:900px){justify-content:center;}">
+                <div class="hero-badges">
                     <span style="background:white; border:1px solid #ddd; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:bold; color:var(--text-sub);">
                         <i class="fa-solid fa-mobile-screen"></i> アプリ不要
                     </span>
@@ -720,6 +777,124 @@
             </div>
         </div>
     </section>
+
+
+<section class="proof-strip" id="proof">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 14px;">
+      <div style="display:inline-block; background:#f0f1ff; color:var(--primary); padding:6px 14px; border-radius:999px; font-weight:800; font-size:0.85rem;">
+        <i class="fa-solid fa-shield-heart"></i> 安心材料（運用イメージ）
+      </div>
+      <h2 style="margin:14px 0 8px;">管理画面があるから、運用が続く</h2>
+      <p style="color:var(--text-sub); margin:0;">資料の取り込み・利用状況の把握など、導入後の運用をシンプルにします。</p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-copy">
+        <h3>「定着するか」を左右する3点を最初に押さえます</h3>
+        <p>
+          社内資料の検索、周知、申請・アンケート…<br>
+          “使われる仕組み”にするには、<strong>管理側の手間が増えないこと</strong>が重要です。
+        </p>
+        <ul class="proof-bullets">
+          <li>資料アップロード：ドラッグ＆ドロップで追加</li>
+          <li>利用状況：登録・未登録・利用率を可視化</li>
+          <li>社内連絡：案内板で一斉周知（埋もれにくい）</li>
+        </ul>
+      </div>
+
+      <div class="proof-shots">
+        <div class="shot">
+          <img src="images/screenshots/dashboard.png" alt="管理画面 ダッシュボード">
+          <small>ダッシュボード：利用状況・主要指標を一目で</small>
+        </div>
+        <div class="shot">
+          <img src="images/screenshots/document_upload.png" alt="ドキュメント管理 アップロード">
+          <small>ドキュメント管理：ドラッグ＆ドロップで追加</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="mobile-cta">
+  <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
+    <i class="fa-brands fa-line"></i> 自社で使えるか相談する
+  </a>
+</div>
+
+
+
+<section class="recommend-section" id="recommend">
+  <div class="container">
+    <div class="recommend-head">
+      <h2 style="margin:0 0 10px;">こんな企業におすすめ</h2>
+      <p>「まずは一部から試してみたい」「総務・人事の問い合わせを減らしたい」など、導入の入口が作りやすいテーマから始められます。</p>
+    </div>
+
+    <div class="recommend-grid">
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/document_search.png" alt="資料検索"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-file-circle-check"></i> 問い合わせ削減</span>
+          <h3>就業規則・手続きの質問が多い</h3>
+          <p>「どこに書いてある？」をLINEで即回答。総務・人事の対応負担を減らします。</p>
+          <ul>
+            <li>社内資料をアップするだけ</li>
+            <li>根拠（参照元）付きで回答</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/ai_mentor_support.png" alt="メンタルケア"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-heart"></i> メンタルケア</span>
+          <h3>相談先がなく抱え込みが起きる</h3>
+          <p>24時間、匿名で相談できる受け皿を用意。早めの気づきにつながります。</p>
+          <ul>
+            <li>心理学ベースの対話</li>
+            <li>匿名で話しやすい</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/announcement_board.png" alt="案内板"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-bullhorn"></i> 周知徹底</span>
+          <h3>お知らせが埋もれて伝わらない</h3>
+          <p>案内板で一斉配信。重要連絡を確実に届け、既読の状況も把握できます。</p>
+          <ul>
+            <li>配信予約・既読確認</li>
+            <li>LINEだから気づきやすい</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/multilingual_support.png" alt="多言語対応"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-language"></i> 多言語</span>
+          <h3>外国人スタッフの説明が大変</h3>
+          <p>母国語で質問→日本語で管理。説明・手続きのズレを減らします。</p>
+          <ul>
+            <li>リアルタイム翻訳</li>
+            <li>現場の理解が早い</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="recommend-cta">
+      <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
+        <i class="fa-brands fa-line"></i> 自社で使えるか相談する
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
 
     <div style="text-align: center; padding: 10px 20px 40px; font-size: 0.8rem; color: #888; line-height:1.4;">
         <i class="fa-solid fa-book-medical" style="color:var(--primary);"></i> 厚生労働省のメンタルヘルス対策ガイドライン等を参考にした設計
@@ -1563,7 +1738,7 @@
             <p style="color:#bdc3c7;">従業員の笑顔と、強い組織づくりのために。</p>
             <div style="margin: 40px 0;">
                 <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding:15px 50px;">
-                    <i class="fa-brands fa-line"></i> お問い合わせ・資料請求
+                    <i class="fa-brands fa-line"></i> 自社で使えるか相談
                 </a>
             </div>
             <p style="font-size:0.8rem; color:#7f8c8d;">&copy; 2025 Kokotomo Service. All Rights Reserved.</p>
