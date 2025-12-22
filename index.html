@@ -2399,5 +2399,97 @@
         </div>
     </footer>
 
+
+<!-- === AUTO PATCH: mobile overflow / layout fix (no content removed) === -->
+<style>
+/* Global safety */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Images & media */
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Containers never exceed viewport */
+.container,
+section,
+main,
+header,
+footer {
+  max-width: 100%;
+}
+
+/* Phone / mockup / visual blocks */
+.phone-mockup,
+.hero-visual,
+.feature-visual,
+.report-visual,
+.roi-visual,
+.roi-growth-image {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Explicit px-width overrides (mobile only) */
+@media (max-width: 768px) {
+
+  /* Any fixed-width blocks */
+  [style*="width: 3"],
+  [style*="width:4"],
+  [style*="width:5"],
+  [style*="min-width"] {
+    max-width: 100% !important;
+  }
+
+  /* Phone mockup scaling */
+  .phone-mockup {
+    width: 100% !important;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Horizontal chip / quick reply area */
+  .quick-reply-area {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Flex / grid safety */
+  .hero-content,
+  .feature-block,
+  .roi-numbers,
+  .roi-total-content,
+  .concept-grid,
+  .axes-grid,
+  .recommend-grid,
+  .voice-grid,
+  .report-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Buttons */
+  .btn,
+  .btn-line {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+</style>
+
 </body>
 </html>
