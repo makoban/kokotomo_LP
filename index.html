@@ -639,6 +639,63 @@
             .provider-grid { flex-direction: column; gap: 20px; align-items: center; }
         }
     </style>
+
+<style>
+  /* hero badges */
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;justify-content:flex-start;}
+  @media (max-width:900px){.hero-badges{justify-content:center;}}
+
+  /* Keep hero visual strong on mobile (image first) */
+  @media (max-width:900px){
+    .hero-content{flex-direction:column; text-align:center;}
+    .hero-visual{order:-1;} /* phone mockup comes first */
+    .hero-text{order:1;}
+    .hero-text p{max-width: 640px; margin-left:auto; margin-right:auto;}
+    .hero-text > div[style*="margin-top: 30px"]{display:flex; justify-content:center;}
+  }
+
+  /* proof strip */
+  .proof-strip{padding: 30px 0 70px; background:#fff;}
+  .proof-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-top:22px;}
+  .proof-copy{background:#f7f8ff;border:1px solid rgba(107,102,200,.15);border-radius:18px;padding:22px;box-shadow:0 10px 25px rgba(0,0,0,.05);}
+  .proof-copy h3{margin:0 0 10px;font-size:1.3rem;}
+  .proof-copy p{margin:0;color:var(--text-sub);}
+  .proof-bullets{margin:12px 0 0;padding-left:18px;color:#555;line-height:1.9;}
+  .proof-shots{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .shot{border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:0 10px 20px rgba(0,0,0,.06);}
+  .shot img{width:100%;height:auto;display:block;}
+  .shot small{display:block;padding:10px 12px;font-size:.78rem;color:#666;background:#fafafa;border-top:1px solid rgba(0,0,0,.06);}
+
+  /* recommend */
+  .recommend-section{padding: 90px 0; background: linear-gradient(135deg,#ffffff 0%, #f5f7fa 100%);}
+  .recommend-head{text-align:center;margin-bottom:44px;}
+  .recommend-head p{color:var(--text-sub);margin:0 auto;max-width:860px;}
+  .recommend-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;}
+  .recommend-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;min-height:320px;}
+  .recommend-card .img{aspect-ratio:16/10;background:#f2f4f7;overflow:hidden;}
+  .recommend-card .img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .recommend-card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .recommend-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;color:var(--primary);background:#f0f1ff;padding:6px 12px;border-radius:999px;width:fit-content;}
+  .recommend-card h3{font-size:1.05rem;margin:0;}
+  .recommend-card p{margin:0;color:var(--text-sub);font-size:.9rem;line-height:1.7;}
+  .recommend-card ul{margin:0;padding-left:18px;color:#555;font-size:.88rem;line-height:1.8;}
+  .recommend-cta{text-align:center;margin-top:34px;}
+
+  /* fixed CTA on mobile */
+  .mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:2000;padding:10px 12px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(0,0,0,.06);}
+  .mobile-cta .btn{width:100%;max-width:520px;margin:0 auto;justify-content:center;}
+  @media (max-width:768px){
+    .proof-grid{grid-template-columns:1fr;}
+    .proof-shots{grid-template-columns:1fr 1fr;}
+    .recommend-grid{grid-template-columns:1fr;gap:14px;}
+    .mobile-cta{display:block;}
+    body{padding-bottom:74px;}
+  }
+  @media (max-width:420px){
+    .proof-shots{grid-template-columns:1fr;}
+  }
+</style>
+
 </head>
 <body>
 
@@ -647,8 +704,8 @@
             <div class="logo">
                 ココ<i class="fa-solid fa-heart" style="color:var(--accent); margin:0 2px;"></i>トモ
             </div>
-            <a href="#contact" class="btn btn-line" style="padding: 8px 18px; font-size: 0.85rem;">
-                <i class="fa-solid fa-envelope"></i> お問い合わせ
+            <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding: 8px 18px; font-size: 0.85rem;">
+                <i class="fa-brands fa-line"></i> 自社で使えるか相談
             </a>
         </div>
     </header>
@@ -662,7 +719,7 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; justify-content: flex-start; @media(max-width:900px){justify-content:center;}">
+                <div class="hero-badges">
                     <span style="background:white; border:1px solid #ddd; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:bold; color:var(--text-sub);">
                         <i class="fa-solid fa-mobile-screen"></i> アプリ不要
                     </span>
@@ -721,6 +778,124 @@
         </div>
     </section>
 
+
+<section class="proof-strip" id="proof">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 14px;">
+      <div style="display:inline-block; background:#f0f1ff; color:var(--primary); padding:6px 14px; border-radius:999px; font-weight:800; font-size:0.85rem;">
+        <i class="fa-solid fa-shield-heart"></i> 安心材料（運用イメージ）
+      </div>
+      <h2 style="margin:14px 0 8px;">管理画面があるから、運用が続く</h2>
+      <p style="color:var(--text-sub); margin:0;">資料の取り込み・利用状況の把握など、導入後の運用をシンプルにします。</p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-copy">
+        <h3>「定着するか」を左右する3点を最初に押さえます</h3>
+        <p>
+          社内資料の検索、周知、申請・アンケート…<br>
+          “使われる仕組み”にするには、<strong>管理側の手間が増えないこと</strong>が重要です。
+        </p>
+        <ul class="proof-bullets">
+          <li>資料アップロード：ドラッグ＆ドロップで追加</li>
+          <li>利用状況：登録・未登録・利用率を可視化</li>
+          <li>社内連絡：案内板で一斉周知（埋もれにくい）</li>
+        </ul>
+      </div>
+
+      <div class="proof-shots">
+        <div class="shot">
+          <img src="images/screenshots/dashboard.png" alt="管理画面 ダッシュボード">
+          <small>ダッシュボード：利用状況・主要指標を一目で</small>
+        </div>
+        <div class="shot">
+          <img src="images/screenshots/document_upload.png" alt="ドキュメント管理 アップロード">
+          <small>ドキュメント管理：ドラッグ＆ドロップで追加</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="mobile-cta">
+  <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
+    <i class="fa-brands fa-line"></i> 自社で使えるか相談する
+  </a>
+</div>
+
+
+
+<section class="recommend-section" id="recommend">
+  <div class="container">
+    <div class="recommend-head">
+      <h2 style="margin:0 0 10px;">こんな企業におすすめ</h2>
+      <p>「まずは一部から試してみたい」「総務・人事の問い合わせを減らしたい」など、導入の入口が作りやすいテーマから始められます。</p>
+    </div>
+
+    <div class="recommend-grid">
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/document_search.png" alt="資料検索"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-file-circle-check"></i> 問い合わせ削減</span>
+          <h3>就業規則・手続きの質問が多い</h3>
+          <p>「どこに書いてある？」をLINEで即回答。総務・人事の対応負担を減らします。</p>
+          <ul>
+            <li>社内資料をアップするだけ</li>
+            <li>根拠（参照元）付きで回答</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/ai_mentor_support.png" alt="メンタルケア"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-heart"></i> メンタルケア</span>
+          <h3>相談先がなく抱え込みが起きる</h3>
+          <p>24時間、匿名で相談できる受け皿を用意。早めの気づきにつながります。</p>
+          <ul>
+            <li>心理学ベースの対話</li>
+            <li>匿名で話しやすい</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/announcement_board.png" alt="案内板"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-bullhorn"></i> 周知徹底</span>
+          <h3>お知らせが埋もれて伝わらない</h3>
+          <p>案内板で一斉配信。重要連絡を確実に届け、既読の状況も把握できます。</p>
+          <ul>
+            <li>配信予約・既読確認</li>
+            <li>LINEだから気づきやすい</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommend-card">
+        <div class="img"><img src="images/illustrations/multilingual_support.png" alt="多言語対応"></div>
+        <div class="body">
+          <span class="recommend-badge"><i class="fa-solid fa-language"></i> 多言語</span>
+          <h3>外国人スタッフの説明が大変</h3>
+          <p>母国語で質問→日本語で管理。説明・手続きのズレを減らします。</p>
+          <ul>
+            <li>リアルタイム翻訳</li>
+            <li>現場の理解が早い</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="recommend-cta">
+      <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line">
+        <i class="fa-brands fa-line"></i> 自社で使えるか相談する
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
     <div style="text-align: center; padding: 10px 20px 40px; font-size: 0.8rem; color: #888; line-height:1.4;">
         <i class="fa-solid fa-book-medical" style="color:var(--primary);"></i> 厚生労働省のメンタルヘルス対策ガイドライン等を参考にした設計
     </div>
@@ -733,7 +908,7 @@
                 <!-- 業務改善 -->
                 <div class="axis-card">
                     <div class="axis-illustration">
-                        <img src="images/illustrations/business_efficiency.webp" alt="業務改善" style="width:100%; height:auto; border-radius:15px;">
+                        <img src="images/illustrations/business_efficiency.png" alt="業務改善" style="width:100%; height:auto; border-radius:15px;">
                     </div>
                     <h3><i class="fa-solid fa-briefcase" style="color:var(--primary);"></i> ① 業務改善</h3>
                     <p style="color:var(--text-sub); margin-bottom:20px;">
@@ -750,7 +925,7 @@
                 <!-- メンターAI -->
                 <div class="axis-card">
                     <div class="axis-illustration">
-                        <img src="images/illustrations/ai_mentor_support.webp" alt="メンターAI" style="width:100%; height:auto; border-radius:15px;">
+                        <img src="images/illustrations/ai_mentor_support.png" alt="メンターAI" style="width:100%; height:auto; border-radius:15px;">
                     </div>
                     <h3><i class="fa-solid fa-heart" style="color:var(--primary);"></i> ② メンターAI</h3>
                     <p style="color:var(--text-sub); margin-bottom:20px;">
@@ -843,7 +1018,7 @@
             <!-- 業務改善カテゴリー -->
             <div class="category-header">
                 <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:15px;">
-                    <img src="images/illustrations/category_business_icon.webp" alt="業務改善" style="width:80px; height:80px; border-radius:50%; box-shadow:0 4px 15px rgba(255,255,255,0.3);">
+                    <img src="images/illustrations/category_business_icon.png" alt="業務改善" style="width:80px; height:80px; border-radius:50%; box-shadow:0 4px 15px rgba(255,255,255,0.3);">
                     <h3 style="margin:0;"><i class="fa-solid fa-briefcase"></i> 業務改善</h3>
                 </div>
                 <p>日常業務を効率化し、従業員の負担を軽減</p>
@@ -865,7 +1040,7 @@
                         <li>総務・人事への問い合わせ削減</li>
                     </ul>
                     <div class="feature-illustration-small">
-                        <img src="images/illustrations/document_search.webp" alt="資料検索" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                        <img src="images/illustrations/document_search.png" alt="資料検索" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
                 <div class="feature-visual">
@@ -913,7 +1088,7 @@
                         <li>管理画面で一括管理</li>
                     </ul>
                     <div class="feature-illustration-small">
-                        <img src="images/illustrations/paid_leave_management.webp" alt="有給管理" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                        <img src="images/illustrations/paid_leave_management.png" alt="有給管理" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
                 <div class="feature-visual">
@@ -972,7 +1147,7 @@
                         <li>既読確認で伝達状況を把握</li>
                     </ul>
                     <div class="feature-illustration-small">
-                        <img src="images/illustrations/announcement_board.webp" alt="案内板管理" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                        <img src="images/illustrations/announcement_board.png" alt="案内板管理" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
                 <div class="feature-visual">
@@ -1005,7 +1180,7 @@
             <!-- メンターAIカテゴリー -->
             <div class="category-header" style="margin-top:100px;">
                 <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:15px;">
-                    <img src="images/illustrations/category_mentor_icon.webp" alt="メンターAI" style="width:80px; height:80px; border-radius:50%; box-shadow:0 4px 15px rgba(255,255,255,0.3);">
+                    <img src="images/illustrations/category_mentor_icon.png" alt="メンターAI" style="width:80px; height:80px; border-radius:50%; box-shadow:0 4px 15px rgba(255,255,255,0.3);">
                     <h3 style="margin:0;"><i class="fa-solid fa-heart"></i> メンターAI</h3>
                 </div>
                 <p>従業員の心に寄り添い、安心して働ける環境を提供</p>
@@ -1125,7 +1300,7 @@
                         <li>組織課題の分析と改善提案</li>
                     </ul>
                     <div class="feature-illustration-small">
-                        <img src="images/illustrations/survey_feedback.webp" alt="アンケート分析" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                        <img src="images/illustrations/survey_feedback.png" alt="アンケート分析" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
                 <div class="feature-visual">
@@ -1183,7 +1358,7 @@
                         <li>外国人従業員の定着率向上</li>
                     </ul>
                     <div class="feature-illustration-small">
-                        <img src="images/illustrations/multilingual_support.webp" alt="多言語対応" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                        <img src="images/illustrations/multilingual_support.png" alt="多言語対応" style="width:100%; max-width:300px; height:auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
                 <div class="feature-visual">
@@ -1333,7 +1508,7 @@
 
             <!-- ダッシュボードイラスト -->
             <div class="admin-illustration-large">
-                <img src="images/illustrations/dashboard_overview.webp" alt="管理画面ダッシュボード" style="width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+                <img src="images/illustrations/dashboard_overview.png" alt="管理画面ダッシュボード" style="width:100%; max-width:900px; height:auto; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
             </div>
 
             <!-- 6つの主要機能グリッド -->
@@ -1376,7 +1551,7 @@
                     <i class="fa-solid fa-cloud-arrow-up"></i> 社内資料はドラッグ&ドロップするだけ！
                 </h3>
                 <div class="drag-drop-illustration">
-                    <img src="images/illustrations/drag_drop_upload.webp" alt="ドラッグ&ドロップで簡単アップロード" style="width:100%; max-width:1000px; height:auto; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+                    <img src="images/illustrations/drag_drop_upload.png" alt="ドラッグ&ドロップで簡単アップロード" style="width:100%; max-width:1000px; height:auto; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
                 </div>
                 <p style="text-align:center; font-size:1.1rem; margin-top:30px; line-height:1.8; color:white; opacity:0.95;">
                     PDF、TXTファイルをドラッグするだけで、AIが自動的に学習。<br>
@@ -1393,12 +1568,12 @@
                 <div class="dashboard-screenshots-grid">
                     <div class="screenshot-card">
                         <h4><i class="fa-solid fa-gauge-high" style="color:var(--primary);"></i> ダッシュボード</h4>
-                        <img src="images/screenshots/dashboard.webp" alt="ダッシュボード" style="width:100%; height:auto; border-radius:10px; border:3px solid var(--primary);">
+                        <img src="images/screenshots/dashboard.png" alt="ダッシュボード" style="width:100%; height:auto; border-radius:10px; border:3px solid var(--primary);">
                         <p>契約人数、LINE登録者数、利用率などの重要指標を一目で確認。各機能へのアクセスもワンクリックで可能です。</p>
                     </div>
                     <div class="screenshot-card">
                         <h4><i class="fa-solid fa-folder-open" style="color:var(--primary);"></i> ドキュメント管理</h4>
-                        <img src="images/screenshots/document_upload.webp" alt="ドキュメント管理" style="width:100%; height:auto; border-radius:10px; border:3px solid var(--primary);">
+                        <img src="images/screenshots/document_upload.png" alt="ドキュメント管理" style="width:100%; height:auto; border-radius:10px; border:3px solid var(--primary);">
                         <p>ドラッグ&ドロップで簡単にドキュメントを追加。アップロードしたファイルは自動的にAIが学習します。</p>
                     </div>
                 </div>
@@ -1518,8 +1693,17 @@
                     <div class="price-val">4,980<span style="font-size:1rem; font-weight:normal;">円 /人</span> <span class="price-note">(税抜)</span></div>
                 </div>
                 <div class="price-row">
-                    <div class="price-label">月額利用料</div>
-                    <div class="price-val">980<span style="font-size:1rem; font-weight:normal;">円 /人</span> <span class="price-note">(税抜)</span></div>
+                  <div class="price-label">月額利用料</div>
+                  <div class="price-val" style="font-size:1.15rem; line-height:1.5; text-align:right;">
+                    🎉✨リリースキャンペーン！！✨🎉<br>
+                    <span style="text-decoration:line-through; opacity:0.55; font-weight:700;">980円 /人</span>
+                    <span style="margin:0 6px; opacity:0.6;">→</span>
+                    <span style="font-size:1.8rem;">480円</span><span style="font-size:1rem; font-weight:700;"> /人</span><br>
+                    <span style="font-size:0.9rem; color:#888; font-weight:700;">
+                      💡いまならずっとこの価格！⏳（👥5,000人限定枠で終了）🔥
+                    </span>
+                    <span class="price-note">(税抜)</span>
+                  </div>
                 </div>
             </div>
         </div>
@@ -1552,36 +1736,10 @@
                 ココ<i class="fa-solid fa-heart" style="color:var(--accent);"></i>トモ
             </div>
             <p style="color:#bdc3c7;">従業員の笑顔と、強い組織づくりのために。</p>
-            
-            <!-- 連絡先情報 -->
-            <div id="contact" style="margin: 30px 0; padding: 25px; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3 style="color: white; font-size: 1.3rem; margin-bottom: 20px; text-align: center;">
-                    <i class="fa-solid fa-envelope" style="color: var(--accent);"></i> お問い合わせ
-                </h3>
-                <div style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto;">
-                    <div style="display: flex; align-items: center; gap: 15px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
-                        <i class="fa-solid fa-phone" style="color: var(--accent); font-size: 1.3rem; width: 30px; text-align: center;"></i>
-                        <div>
-                            <div style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 3px;">電話でのお問い合わせ</div>
-                            <a href="tel:0528477500" style="color: white; text-decoration: none; font-size: 1.1rem; font-weight: bold;">052-847-7500</a>
-                            <div style="font-size: 0.75rem; color: #95a5a6; margin-top: 2px;">平日 9:00-18:00</div>
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
-                        <i class="fa-solid fa-envelope" style="color: var(--accent); font-size: 1.3rem; width: 30px; text-align: center;"></i>
-                        <div>
-                            <div style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 3px;">メールでのお問い合わせ</div>
-                            <a href="mailto:kokotomo@becreative.co.jp" style="color: white; text-decoration: none; font-size: 1.05rem; font-weight: bold;">kokotomo@becreative.co.jp</a>
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
-                        <i class="fa-brands fa-line" style="color: #06C755; font-size: 1.3rem; width: 30px; text-align: center;"></i>
-                        <div style="flex: 1;">
-                            <div style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 3px;">LINEでのお問い合わせ</div>
-                            <a href="https://lin.ee/AbBT80U" target="_blank" style="color: white; text-decoration: none; font-size: 1.05rem; font-weight: bold;">友だち追加はこちら</a>
-                        </div>
-                    </div>
-                </div>
+            <div style="margin: 40px 0;">
+                <a href="https://lin.ee/AbBT80U" target="_blank" class="btn btn-line" style="padding:15px 50px;">
+                    <i class="fa-brands fa-line"></i> 自社で使えるか相談
+                </a>
             </div>
             <p style="font-size:0.8rem; color:#7f8c8d;">&copy; 2025 Kokotomo Service. All Rights Reserved.</p>
         </div>
