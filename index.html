@@ -716,14 +716,16 @@
 .roi-numbers {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 20px;
+    width: 100%;
 }
 
 .roi-year-card {
     background: white;
     border-radius: 16px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    flex: 1;
 }
 
 .year-badge {
@@ -755,7 +757,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
 
 .calc-label {
@@ -961,7 +963,7 @@
 
   /* proof strip */
   .proof-strip{padding: 30px 0 70px; background:#fff;}
-  .proof-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-top:22px;}
+  .proof-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;margin-top:22px;max-width:900px;margin-left:auto;margin-right:auto;}
   .proof-copy{background:#f7f8ff;border:1px solid rgba(107,102,200,.15);border-radius:18px;padding:22px;box-shadow:0 10px 25px rgba(0,0,0,.05);}
   .proof-copy h3{margin:0 0 10px;font-size:1.3rem;}
   .proof-copy p{margin:0;color:var(--text-sub);}
@@ -1222,17 +1224,6 @@
         <p style="margin-top: 20px; font-weight: 600; color: var(--primary);">
           初年度から黒字、2年目以降は毎年117.7万円の利益
         </p>
-      </div>
-
-      <div class="proof-shots">
-        <div class="shot">
-          <img src="images/screenshots/dashboard.png" alt="管理画面 ダッシュボード">
-          <small>ダッシュボード：利用状況・主要指標を一目で</small>
-        </div>
-        <div class="shot">
-          <img src="images/screenshots/document_upload.png" alt="ドキュメント管理 アップロード">
-          <small>ドキュメント管理：ドラッグ＆ドロップで追加</small>
-        </div>
       </div>
     </div>
   </div>
