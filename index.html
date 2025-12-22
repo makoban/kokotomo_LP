@@ -1199,25 +1199,36 @@
 
     <div class="proof-grid">
       <div class="proof-copy">
-        <h3><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 10px;"></i>ROI計算の根拠（エビデンス）</h3>
+        <h3><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 10px;"></i>ROI計算の根拠</h3>
         
         <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-top: 20px; margin-bottom: 10px;">
           <i class="fa-solid fa-building" style="margin-right: 8px;"></i>前提条件
         </h4>
         <ul class="proof-bullets" style="margin-bottom: 20px;">
           <li><i class="fa-solid fa-users" style="color: var(--primary); margin-right: 8px;"></i><strong>従業員数:</strong> 30名</li>
-          <li><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i><strong>年間労働時間:</strong> 2,000時間/人</li>
-          <li><i class="fa-solid fa-chart-line" style="color: var(--primary); margin-right: 8px;"></i><strong>総労働時間:</strong> 2,000時間 × 30名 = 60,000時間/年</li>
-          <li><i class="fa-solid fa-yen-sign" style="color: var(--primary); margin-right: 8px;"></i><strong>時給:</strong> 2,000円</li>
-          <li><i class="fa-solid fa-sack-dollar" style="color: var(--primary); margin-right: 8px;"></i><strong>現在の総人件費:</strong> 60,000時間 × 2,000円 = 1億5,000万円/年</li>
+          <li><i class="fa-solid fa-user-xmark" style="color: var(--primary); margin-right: 8px;"></i><strong>年間離職率:</strong> 15%（4.5名 ≒ 5名/年）</li>
+          <li><i class="fa-solid fa-coins" style="color: var(--primary); margin-right: 8px;"></i><strong>1人あたりの離職コスト:</strong> 300万円</li>
+          <li><i class="fa-solid fa-sack-dollar" style="color: var(--primary); margin-right: 8px;"></i><strong>従業員の平均年収:</strong> 400万円</li>
+          <li><i class="fa-solid fa-clock" style="color: var(--primary); margin-right: 8px;"></i><strong>労働時間:</strong> 年間2,000時間</li>
+          <li><i class="fa-solid fa-yen-sign" style="color: var(--primary); margin-right: 8px;"></i><strong>時給:</strong> 400万円 ÷ 2,000時間 = 2,000円</li>
         </ul>
 
         <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 10px;">
           <i class="fa-solid fa-arrow-trend-down" style="margin-right: 8px;"></i>年間削減額（1%改善の場合）
         </h4>
         <ul class="proof-bullets" style="margin-bottom: 20px;">
-          <li><i class="fa-solid fa-user-shield" style="color: var(--accent); margin-right: 8px;"></i><strong>離職防止:</strong> 15万円/年</li>
-          <li><i class="fa-solid fa-rocket" style="color: var(--accent); margin-right: 8px;"></i><strong>業務改善（1%改善）:</strong> 1億5,000万円 × 1% = 120万円/年</li>
+          <li><i class="fa-solid fa-user-shield" style="color: var(--accent); margin-right: 8px;"></i><strong>離職防止:</strong>
+            <ul style="margin-top: 8px; margin-left: 20px; list-style: none;">
+              <li>現在の離職コスト: 5名 × 300万円 = 1,500万円/年</li>
+              <li>1%改善: 1,500万円 × 1% = <strong style="color: var(--accent);">15万円/年の削減</strong></li>
+            </ul>
+          </li>
+          <li style="margin-top: 12px;"><i class="fa-solid fa-rocket" style="color: var(--accent); margin-right: 8px;"></i><strong>業務改善（1%改善）:</strong>
+            <ul style="margin-top: 8px; margin-left: 20px; list-style: none;">
+              <li>現在の総人件費: 30名 × 400万円 = 1億2,000万円/年</li>
+              <li>1%改善: 1億2,000万円 × 1% = <strong style="color: var(--accent);">120万円/年の削減</strong></li>
+            </ul>
+          </li>
         </ul>
         <p style="font-weight: 700; font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; padding: 15px; background: #f0fff4; border-left: 4px solid var(--accent); border-radius: 8px;">
           <i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i>合計: 135万円/年の削減
